@@ -1,5 +1,5 @@
-const page = () => {
-  return <div></div>;
-};
+import { ThemeToggle } from "@/components";
 
-export default page;
+export default function Page() {
+  return <ThemeToggle />;
+}
