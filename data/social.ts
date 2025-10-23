@@ -72,16 +72,6 @@ export const contactInfo = {
   availability: "available" as const,
 };
 
-// Navigation links
-export const navItems = [
-  { id: "home", label: "Home", href: "/" },
-  { id: "about", label: "About", href: "/#about" },
-  { id: "projects", label: "Projects", href: "/#projects" },
-  { id: "experience", label: "Experience", href: "/#experience" },
-  { id: "skills", label: "Skills", href: "/#skills" },
-  { id: "contact", label: "Contact", href: "/#contact" },
-];
-
 // Footer links
 export const footerLinks = {
   sections: [
