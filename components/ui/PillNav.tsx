@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
-import ThemeToggle from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components";
 
 export type PillNavItem = {
   label: string;
@@ -308,185 +308,184 @@ const PillNav: React.FC<PillNavProps> = ({
   } as React.CSSProperties;
 
   return (
-    <div className="absolute top-[1em] z-1000 w-full left-0 px-4 md:px-8">
+    <div className="relative top-[1em] z-1000 w-full left-0 px-4 md:px-8">
       <div className="w-full flex items-center justify-center md:justify-center relative">
         <nav
           className={`flex items-center justify-center box-border ${className}`}
           aria-label="Primary"
           style={cssVars}
         >
-        {logo && (isRouterLink(items?.[0]?.href) ? (
-          <Link
-            href={items[0].href}
-            aria-label="Home"
-            onMouseEnter={handleLogoEnter}
-            role="menuitem"
-            ref={(el) => {
-              logoRef.current = el;
-            }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+          {logo &&
+            (isRouterLink(items?.[0]?.href) ? (
+              <Link
+                href={items[0].href}
+                aria-label="Home"
+                onMouseEnter={handleLogoEnter}
+                role="menuitem"
+                ref={(el) => {
+                  logoRef.current = el;
+                }}
+                className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+                style={{
+                  width: "var(--nav-h)",
+                  height: "var(--nav-h)",
+                  background: "var(--base, #000)",
+                }}
+              >
+                <img
+                  src={logo}
+                  alt={logoAlt}
+                  ref={logoImgRef}
+                  className="w-full h-full object-cover block"
+                />
+              </Link>
+            ) : (
+              <a
+                href={items?.[0]?.href || "#"}
+                aria-label="Home"
+                onMouseEnter={handleLogoEnter}
+                ref={(el) => {
+                  logoRef.current = el;
+                }}
+                className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+                style={{
+                  width: "var(--nav-h)",
+                  height: "var(--nav-h)",
+                  background: "var(--base, #000)",
+                }}
+              >
+                <img
+                  src={logo}
+                  alt={logoAlt}
+                  ref={logoImgRef}
+                  className="w-full h-full object-cover block"
+                />
+              </a>
+            ))}
+
+          <div
+            ref={navItemsRef}
+            className={`relative items-center rounded-full hidden md:flex ${
+              logo ? "ml-2" : ""
+            }`}
             style={{
-              width: "var(--nav-h)",
               height: "var(--nav-h)",
               background: "var(--base, #000)",
             }}
           >
-            <img
-              src={logo}
-              alt={logoAlt}
-              ref={logoImgRef}
-              className="w-full h-full object-cover block"
-            />
-          </Link>
-        ) : (
-          <a
-            href={items?.[0]?.href || "#"}
-            aria-label="Home"
-            onMouseEnter={handleLogoEnter}
-            ref={(el) => {
-              logoRef.current = el;
-            }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
-            style={{
-              width: "var(--nav-h)",
-              height: "var(--nav-h)",
-              background: "var(--base, #000)",
-            }}
-          >
-            <img
-              src={logo}
-              alt={logoAlt}
-              ref={logoImgRef}
-              className="w-full h-full object-cover block"
-            />
-          </a>
-        ))}
+            <ul
+              role="menubar"
+              className="list-none flex items-stretch m-0 p-[3px] h-full"
+              style={{ gap: "var(--pill-gap)" }}
+            >
+              {items.map((item, i) => {
+                const isActive = activeHref === item.href;
 
-        <div
-          ref={navItemsRef}
-          className={`relative items-center rounded-full hidden md:flex ${logo ? "ml-2" : ""}`}
-          style={{
-            height: "var(--nav-h)",
-            background: "var(--base, #000)",
-          }}
-        >
-          <ul
-            role="menubar"
-            className="list-none flex items-stretch m-0 p-[3px] h-full"
-            style={{ gap: "var(--pill-gap)" }}
-          >
-            {items.map((item, i) => {
-              const isActive = activeHref === item.href;
+                const pillStyle: React.CSSProperties = {
+                  background: "var(--pill-bg, #fff)",
+                  color: "var(--pill-text, var(--base, #000))",
+                  paddingLeft: "var(--pill-pad-x)",
+                  paddingRight: "var(--pill-pad-x)",
+                };
 
-              const pillStyle: React.CSSProperties = {
-                background: "var(--pill-bg, #fff)",
-                color: "var(--pill-text, var(--base, #000))",
-                paddingLeft: "var(--pill-pad-x)",
-                paddingRight: "var(--pill-pad-x)",
-              };
-
-              const PillContent = (
-                <>
-                  <span
-                    className="hover-circle absolute left-1/2 bottom-0 rounded-full z-1 block pointer-events-none"
-                    style={{
-                      background: "var(--base, #000)",
-                      willChange: "transform",
-                    }}
-                    aria-hidden="true"
-                    ref={(el) => {
-                      circleRefs.current[i] = el;
-                    }}
-                  />
-                  <span className="label-stack relative inline-block leading-1 z-2">
+                const PillContent = (
+                  <>
                     <span
-                      className="pill-label relative z-2 inline-block leading-1"
-                      style={{ willChange: "transform" }}
-                    >
-                      {item.label}
-                    </span>
-                    <span
-                      className="pill-label-hover absolute left-0 top-0 z-3 inline-block"
+                      className="hover-circle absolute left-1/2 bottom-0 rounded-full z-1 block pointer-events-none"
                       style={{
-                        color: "var(--hover-text, #fff)",
-                        willChange: "transform, opacity",
+                        background: "var(--base, #000)",
+                        willChange: "transform",
                       }}
                       aria-hidden="true"
-                    >
-                      {item.label}
-                    </span>
-                  </span>
-                  {isActive && (
-                    <span
-                      className="absolute left-1/2 -bottom-1.5 -translate-x-1/2 w-3 h-3 rounded-full z-4"
-                      style={{ background: "var(--base, #000)" }}
-                      aria-hidden="true"
+                      ref={(el) => {
+                        circleRefs.current[i] = el;
+                      }}
                     />
-                  )}
-                </>
-              );
+                    <span className="label-stack relative inline-block leading-1 z-2">
+                      <span
+                        className="pill-label relative z-2 inline-block leading-1"
+                        style={{ willChange: "transform" }}
+                      >
+                        {item.label}
+                      </span>
+                      <span
+                        className="pill-label-hover absolute left-0 top-0 z-3 inline-block"
+                        style={{
+                          color: "var(--hover-text, #fff)",
+                          willChange: "transform, opacity",
+                        }}
+                        aria-hidden="true"
+                      >
+                        {item.label}
+                      </span>
+                    </span>
+                    {isActive && (
+                      <span
+                        className="absolute left-1/2 -bottom-1.5 -translate-x-1/2 w-3 h-3 rounded-full z-4"
+                        style={{ background: "var(--base, #000)" }}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </>
+                );
 
-              const basePillClasses =
-                "relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0";
+                const basePillClasses =
+                  "relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0";
 
-              return (
-                <li key={item.href} role="none" className="flex h-full">
-                  {isRouterLink(item.href) ? (
-                    <Link
-                      role="menuitem"
-                      href={item.href}
-                      className={basePillClasses}
-                      style={pillStyle}
-                      aria-label={item.ariaLabel || item.label}
-                      onMouseEnter={() => handleEnter(i)}
-                      onMouseLeave={() => handleLeave(i)}
-                    >
-                      {PillContent}
-                    </Link>
-                  ) : (
-                    <a
-                      role="menuitem"
-                      href={item.href}
-                      className={basePillClasses}
-                      style={pillStyle}
-                      aria-label={item.ariaLabel || item.label}
-                      onMouseEnter={() => handleEnter(i)}
-                      onMouseLeave={() => handleLeave(i)}
-                    >
-                      {PillContent}
-                    </a>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </nav>
+                return (
+                  <li key={item.href} role="none" className="flex h-full">
+                    {isRouterLink(item.href) ? (
+                      <Link
+                        role="menuitem"
+                        href={item.href}
+                        className={basePillClasses}
+                        style={pillStyle}
+                        aria-label={item.ariaLabel || item.label}
+                        onMouseEnter={() => handleEnter(i)}
+                        onMouseLeave={() => handleLeave(i)}
+                      >
+                        {PillContent}
+                      </Link>
+                    ) : (
+                      <a
+                        role="menuitem"
+                        href={item.href}
+                        className={basePillClasses}
+                        style={pillStyle}
+                        aria-label={item.ariaLabel || item.label}
+                        onMouseEnter={() => handleEnter(i)}
+                        onMouseLeave={() => handleLeave(i)}
+                      >
+                        {PillContent}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </nav>
 
-      {showThemeToggle && (
-        <div className="hidden md:block absolute right-0 top-0">
-          <ThemeToggle />
-        </div>
-      )}
+        {showThemeToggle && (
+          <div className="hidden md:block absolute right-0 top-0 mt-4">
+            <ThemeToggle />
+          </div>
+        )}
 
-      <button
-        ref={hamburgerRef}
-        onClick={toggleMobileMenu}
-        aria-label="Toggle menu"
-        aria-expanded={isMobileMenuOpen}
-        className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 absolute right-0 top-0 bg-[#ffffff] dark:bg-[#000000]"
-        style={{
-          width: "var(--nav-h)",
-          height: "var(--nav-h)",
-        }}
-      >
-        <span
-          className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-[#000000] dark:bg-[#ffffff]"
-        />
-        <span
-          className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-[#000000] dark:bg-[#ffffff]"
-        />
-      </button>
+        <button
+          ref={hamburgerRef}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 absolute right-0 top-0 bg-[#ffffff] dark:bg-[#000000]"
+          style={{
+            width: "var(--nav-h)",
+            height: "var(--nav-h)",
+          }}
+        >
+          <span className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-[#000000] dark:bg-[#ffffff]" />
+          <span className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-[#000000] dark:bg-[#ffffff]" />
+        </button>
       </div>
 
       <div
