@@ -55,6 +55,49 @@ const PillNav: React.FC<PillNavProps> = ({
   const logoRef = useRef<HTMLAnchorElement | HTMLElement | null>(null);
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!isMobileMenuOpen) return;
+
+      const menu = mobileMenuRef.current;
+      const hamburger = hamburgerRef.current;
+      const target = event.target as Node;
+
+      if (
+        menu &&
+        hamburger &&
+        !menu.contains(target) &&
+        !hamburger.contains(target)
+      ) {
+        setIsMobileMenuOpen(false);
+
+        const lines = hamburger.querySelectorAll(".hamburger-line");
+        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
+        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+
+        gsap.to(menu, {
+          opacity: 0,
+          y: 10,
+          scaleY: 1,
+          duration: 0.2,
+          ease,
+          transformOrigin: "top center",
+          onComplete: () => {
+            gsap.set(menu, { visibility: "hidden" });
+          },
+        });
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen, ease]);
+
+  useEffect(() => {
     const layout = () => {
       circleRefs.current.forEach((circle) => {
         if (!circle?.parentElement) return;
@@ -431,20 +474,17 @@ const PillNav: React.FC<PillNavProps> = ({
         onClick={toggleMobileMenu}
         aria-label="Toggle menu"
         aria-expanded={isMobileMenuOpen}
-        className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 absolute right-0 top-0"
+        className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 absolute right-0 top-0 bg-[#ffffff] dark:bg-[#000000]"
         style={{
           width: "var(--nav-h)",
           height: "var(--nav-h)",
-          background: "var(--base, #000)",
         }}
       >
         <span
-          className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-          style={{ background: "var(--pill-bg, #fff)" }}
+          className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-[#000000] dark:bg-[#ffffff]"
         />
         <span
-          className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-          style={{ background: "var(--pill-bg, #fff)" }}
+          className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-10 ease-[cubic-bezier(0.25,0.1,0.25,1)] bg-[#000000] dark:bg-[#ffffff]"
         />
       </button>
       </div>
