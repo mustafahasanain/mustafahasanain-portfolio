@@ -1,0 +1,44 @@
+import Image from "next/image";
+import { techStack } from "@/data/skills";
+import TechStackCards from "../ui/TechStackCards";
+
+const TechStack = () => {
+  return (
+    <section id="about" className="w-full py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="mb-12 text-center text-4xl font-bold">Tech Stack</h2>
+        <div className="flex justify-center items-center w-full">
+          <div className="grid grid-cols-2 gap-8 md:gap-12 md:grid-cols-4 place-items-center">
+            {techStack.map((category) => (
+              <TechStackCards key={category.id}>
+                <div
+                  className="flex h-48 w-40 md:h-96 md:w-80 cursor-pointer flex-col items-stretch rounded-2xl border-0 bg-linear-to-br from-[#1F2121] to-[#2A2D2D] p-4 md:p-8"
+                  style={{
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  <div className="flex flex-1 flex-col items-center justify-center text-center gap-3 md:gap-6">
+                    <div className="w-16 h-16 md:w-32 md:h-32 flex items-center justify-center">
+                      <Image
+                        src={category.logo}
+                        alt={`${category.name} logo`}
+                        width={128}
+                        height={128}
+                        className="object-contain"
+                      />
+                    </div>
+                    <h3 className="text-sm md:text-2xl font-bold text-white">
+                      {category.name}
+                    </h3>
+                  </div>
+                </div>
+              </TechStackCards>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TechStack;
