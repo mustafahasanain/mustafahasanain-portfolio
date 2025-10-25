@@ -15,3 +15,4 @@ export { default as BlurText } from "./ui/BlurText";
 
 // sections
 export { default as Hero } from "./sections/hero";
+export { default as TechStack } from "./sections/techStack";

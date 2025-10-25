@@ -1,4 +1,11 @@
-import { SkillCategory } from "@/types";
+import { SkillCategory, TechStack } from "@/types";
+
+export const techStack: TechStack[] = [
+  { id: 1, name: "ReactJS", logo: "/techStack/react.svg" },
+  { id: 2, name: "NextJS", logo: "/techStack/nextjs.svg" },
+  { id: 3, name: "NodeJS", logo: "/techStack/nodejs.svg" },
+  { id: 4, name: "PostgreSQL", logo: "/techStack/postgresql.svg" },
+];
 
 export const skillCategories: SkillCategory[] = [
   {

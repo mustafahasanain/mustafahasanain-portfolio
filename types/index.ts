@@ -26,6 +26,12 @@ export interface Experience {
   achievements?: string[];
 }
 
+export interface TechStack {
+  id: number;
+  name: string;
+  logo: string;
+}
+
 export interface SkillCategory {
   id: string;
   name: string;
