@@ -9,6 +9,7 @@ export const projects: Project[] = [
     longDescription:
       "Built a comprehensive e-commerce solution featuring a modern React frontend, Node.js backend, and PostgreSQL database. Implemented Stripe payment integration, real-time inventory tracking, order management system, and a powerful admin dashboard for managing products, orders, and customers.",
     image: "/projects/ecommerce.jpg",
+    iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
     tags: [
       "React",
       "Next.js",
@@ -32,6 +33,7 @@ export const projects: Project[] = [
     longDescription:
       "Developed a Trello-like task management system with drag-and-drop functionality, real-time collaboration using WebSockets, team workspaces, task assignments, due dates, comments, and comprehensive analytics dashboard to track team productivity.",
     image: "/projects/task-management.jpg",
+    iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
     tags: [
       "React",
       "TypeScript",
@@ -55,6 +57,7 @@ export const projects: Project[] = [
     longDescription:
       "Created an intelligent content generation platform leveraging OpenAI's GPT models. Features include custom tone selection, multi-language support, content optimization for SEO, plagiarism detection, and a content calendar for scheduling posts across multiple platforms.",
     image: "/projects/ai-content.jpg",
+    iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
     tags: [
       "Next.js",
       "TypeScript",
@@ -78,6 +81,7 @@ export const projects: Project[] = [
     longDescription:
       "Built a comprehensive fitness tracking application using React Native. Includes workout logging, nutrition tracking, progress photos, goal setting, social features to connect with friends, challenge participation, and integration with popular fitness wearables.",
     image: "/projects/fitness-app.jpg",
+    iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
     tags: [
       "React Native",
       "TypeScript",
@@ -99,6 +103,7 @@ export const projects: Project[] = [
     longDescription:
       "Developed a full-featured real estate listing website with property search using advanced filters, interactive maps integration, virtual tour functionality, mortgage calculator, property comparison tools, saved searches, and email alerts for new listings matching user criteria.",
     image: "/projects/real-estate.jpg",
+    iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
     tags: [
       "Next.js",
       "TypeScript",
@@ -122,8 +127,7 @@ export const getFeaturedProjects = () => projects.filter((p) => p.featured);
 export const getProjectsByCategory = (category: Project["category"]) =>
   projects.filter((p) => p.category === category);
 
-export const getProjectById = (id: string) =>
-  projects.find((p) => p.id === id);
+export const getProjectById = (id: string) => projects.find((p) => p.id === id);
 
 export const getRecentProjects = (limit: number = 3) =>
   projects.sort((a, b) => b.year - a.year).slice(0, limit);
