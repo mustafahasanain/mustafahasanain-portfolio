@@ -8,12 +8,15 @@ export { default as Footer } from "./Footer";
 export { default as BlurTitle } from "./BlurTitle";
 export { default as Grid } from "./Grid";
 export { default as ProjectCard } from "./ProjectCard";
+export { default as FigmaButton } from "./FigmaButton";
+export { default as Pagination } from "./Pagination";
 
 // ui component
 export { default as DotGrid } from "./ui/DotGrid";
 export { default as PillNav } from "./ui/PillNav";
 export { default as BlurText } from "./ui/BlurText";
 export { CardContainer, CardBody, CardItem } from "./ui/3dCard";
+export { default as ButtonsCard } from "./ui/ButtonsCard";
 
 // sections
 export { default as Hero } from "./sections/hero";

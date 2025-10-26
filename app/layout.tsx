@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components";
+import { Footer, Navbar, ThemeProvider } from "@/components";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -63,7 +63,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

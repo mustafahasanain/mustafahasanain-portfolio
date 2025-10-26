@@ -20,7 +20,7 @@ const Hero = () => {
           </p>
 
           <button className="mt-10 px-8 py-3 border-2 bg-[#ffffff] dark:bg-[#0a0a0a] border-black/30 dark:border-white/30 rounded-md text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2 mx-auto">
-            <a href="#projects">See my work</a>
+            <a href="/projects">See my work</a>
             <svg
               className="w-4 h-4"
               fill="none"

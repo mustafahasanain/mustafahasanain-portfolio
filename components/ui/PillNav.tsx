@@ -286,6 +286,24 @@ const PillNav: React.FC<PillNavProps> = ({
     onMobileMenuClick?.();
   };
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Handle hash links with smooth scroll
+    if (href.includes('#')) {
+      const hashIndex = href.indexOf('#');
+      const path = href.substring(0, hashIndex);
+      const hash = href.substring(hashIndex + 1);
+
+      // Check if it's the current page or root page
+      if (path === '' || path === '/' || window.location.pathname === path) {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  };
+
   const isExternalLink = (href: string) =>
     href.startsWith("http://") ||
     href.startsWith("https://") ||
@@ -443,6 +461,7 @@ const PillNav: React.FC<PillNavProps> = ({
                         aria-label={item.ariaLabel || item.label}
                         onMouseEnter={() => handleEnter(i)}
                         onMouseLeave={() => handleLeave(i)}
+                        onClick={(e) => handleSmoothScroll(e, item.href)}
                       >
                         {PillContent}
                       </Link>
@@ -455,6 +474,7 @@ const PillNav: React.FC<PillNavProps> = ({
                         aria-label={item.ariaLabel || item.label}
                         onMouseEnter={() => handleEnter(i)}
                         onMouseLeave={() => handleLeave(i)}
+                        onClick={(e) => handleSmoothScroll(e, item.href)}
                       >
                         {PillContent}
                       </a>
@@ -523,7 +543,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleSmoothScroll(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -534,7 +557,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleSmoothScroll(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     {item.label}
                   </a>

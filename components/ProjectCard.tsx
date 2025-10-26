@@ -5,13 +5,13 @@ import Image from "next/image";
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/10 dark:bg-black dark:border-white/20 border-black/10 w-full sm:w-104 h-auto rounded-xl p-5 border">
+      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/10 dark:bg-black dark:border-white/20 border-black/10 w-full md:w-[400px] lg:w-[450px] h-auto rounded-xl p-5 border">
         <CardItem translateZ="100" className="w-full">
           <Image
             src={project.image}
             height={1000}
             width={1000}
-            className="h-48 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
             alt={project.title}
           />
         </CardItem>
@@ -60,7 +60,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               as="a"
               href={project.liveUrl}
               target="_blank"
-              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+              className="px-4 py-2 rounded-lg bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
             >
               Live Demo →
             </CardItem>

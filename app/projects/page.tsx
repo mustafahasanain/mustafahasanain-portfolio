@@ -1,51 +1,86 @@
-import { ProjectCard } from "@/components";
+"use client";
+
+import { ProjectCard, Pagination } from "@/components";
 import { projects } from "@/data/projects";
+import { useState } from "react";
+
+const PROJECTS_PER_PAGE = 9;
 
 const ProjectsPage = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const endIndex = startIndex + PROJECTS_PER_PAGE;
+  const currentProjects = projects.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <main className="min-h-screen bg-black-100">
-      <div className="max-w-7xl mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
+    <main className="min-h-screen bg-black-100 mt-20">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
             All <span className="text-purple">Projects</span>
           </h1>
-          <p className="text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto text-lg">
-            A comprehensive collection of my work including web applications, mobile apps, and innovative digital solutions
+          <p className="text-center text-neutral-500 dark:text-neutral-400 mb-0 max-w-2xl mx-auto">
+            A comprehensive collection of my work including web applications,
+            mobile apps, and innovative digital solutions
           </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <h3 className="text-4xl font-bold text-purple mb-2">
+                {projects.length}
+              </h3>
+              <p className="text-neutral-500 dark:text-neutral-400">
+                Total Projects
+              </p>
+            </div>
+            <div>
+              <h3 className="text-4xl font-bold text-purple mb-2">
+                {projects.filter((p) => p.featured).length}
+              </h3>
+              <p className="text-neutral-500 dark:text-neutral-400">
+                Featured Projects
+              </p>
+            </div>
+            <div>
+              <h3 className="text-4xl font-bold text-purple mb-2">
+                {projects.filter((p) => p.category === "web").length}
+              </h3>
+              <p className="text-neutral-500 dark:text-neutral-400">
+                Web Applications
+              </p>
+            </div>
+            <div>
+              <h3 className="text-4xl font-bold text-purple mb-2">
+                {projects.filter((p) => p.category === "mobile").length}
+              </h3>
+              <p className="text-neutral-500 dark:text-neutral-400">
+                Mobile Apps
+              </p>
+            </div>
+          </div>
 
-        {/* Project Statistics */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <h3 className="text-4xl font-bold text-purple mb-2">{projects.length}</h3>
-            <p className="text-neutral-500 dark:text-neutral-400">Total Projects</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
+            {currentProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
           </div>
-          <div>
-            <h3 className="text-4xl font-bold text-purple mb-2">
-              {projects.filter((p) => p.featured).length}
-            </h3>
-            <p className="text-neutral-500 dark:text-neutral-400">Featured Projects</p>
-          </div>
-          <div>
-            <h3 className="text-4xl font-bold text-purple mb-2">
-              {projects.filter((p) => p.category === "web").length}
-            </h3>
-            <p className="text-neutral-500 dark:text-neutral-400">Web Applications</p>
-          </div>
-          <div>
-            <h3 className="text-4xl font-bold text-purple mb-2">
-              {projects.filter((p) => p.category === "mobile").length}
-            </h3>
-            <p className="text-neutral-500 dark:text-neutral-400">Mobile Apps</p>
-          </div>
+
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
         </div>
-      </div>
+      </section>
     </main>
   );
 };
