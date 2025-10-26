@@ -13,7 +13,7 @@ export { default as ProjectCard } from "./ProjectCard";
 export { default as DotGrid } from "./ui/DotGrid";
 export { default as PillNav } from "./ui/PillNav";
 export { default as BlurText } from "./ui/BlurText";
-export { CardContainer, CardBody, CardItem } from "./ui/3d-card";
+export { CardContainer, CardBody, CardItem } from "./ui/3dCard";
 
 // sections
 export { default as Hero } from "./sections/hero";

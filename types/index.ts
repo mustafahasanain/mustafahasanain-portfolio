@@ -9,8 +9,12 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
-  category: "web" | "mobile" | "desktop" | "other";
+  category: string;
   year: number;
+}
+
+export interface ProjectCardProps {
+  project: Project;
 }
 
 export interface Experience {
