@@ -1,4 +1,4 @@
-import { Footer, Hero, LatestProjects, Navbar, TechStack } from "@/components";
+import { Hero, LatestProjects, TechStack, WorkExperience } from "@/components";
 
 export default function Page() {
   return (
@@ -6,6 +6,7 @@ export default function Page() {
       <Hero />
       <TechStack />
       <LatestProjects />
+      <WorkExperience />
     </div>
   );
 }

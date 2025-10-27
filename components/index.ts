@@ -17,8 +17,10 @@ export { default as PillNav } from "./ui/PillNav";
 export { default as BlurText } from "./ui/BlurText";
 export { CardContainer, CardBody, CardItem } from "./ui/3dCard";
 export { default as ButtonsCard } from "./ui/ButtonsCard";
+export { Button, MovingBorder } from "./ui/MovingBorder";
 
 // sections
 export { default as Hero } from "./sections/hero";
 export { default as TechStack } from "./sections/techStack";
 export { default as LatestProjects } from "./sections/latestProjects";
+export { default as WorkExperience } from "./sections/workExperience";

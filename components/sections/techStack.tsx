@@ -4,7 +4,7 @@ import TechStackCards from "../ui/TechStackCards";
 
 const TechStack = () => {
   return (
-    <section id="about" className="w-full py-20">
+    <section className="w-full py-20">
       <div className="container mx-auto px-4">
         <h2 className="mb-4 text-center text-4xl font-bold">Tech Stack</h2>
         <p className="text-center text-neutral-500 dark:text-neutral-400 mb-12 max-w-2xl mx-auto">

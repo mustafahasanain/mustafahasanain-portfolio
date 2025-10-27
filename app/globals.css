@@ -98,6 +98,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-purple: var(--purple);
+  --color-white-100: var(--white-100);
 }
 
 :root {
@@ -133,6 +135,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Custom colors for ExperienceCard */
+  --purple: oklch(0.65 0.25 280);
+  --white-100: oklch(0.95 0.01 0);
 }
 
 .dark {
@@ -167,6 +173,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Custom colors for ExperienceCard - dark mode */
+  --purple: oklch(0.7 0.25 280);
+  --white-100: oklch(0.9 0.01 0);
 }
 
 @layer base {
@@ -178,5 +188,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center;
   }
 }

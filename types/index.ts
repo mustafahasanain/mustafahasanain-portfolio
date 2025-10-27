@@ -17,18 +17,12 @@ export interface ProjectCardProps {
   project: Project;
 }
 
-export interface Experience {
-  id: string;
-  company: string;
-  position: string;
-  location: string;
-  locationType: "remote" | "onsite" | "hybrid";
-  startDate: string;
-  endDate: string | "Present";
+export interface WorkExperience {
+  id: number;
+  title: string;
   description: string;
-  responsibilities: string[];
-  technologies: string[];
-  achievements?: string[];
+  className: string;
+  thumbnail: string;
 }
 
 export interface TechStack {
