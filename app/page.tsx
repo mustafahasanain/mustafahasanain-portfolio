@@ -1,4 +1,10 @@
-import { Hero, LatestProjects, TechStack, WorkExperience } from "@/components";
+import {
+  DevelopmentProcess,
+  Hero,
+  LatestProjects,
+  TechStack,
+  WorkExperience,
+} from "@/components";
 
 export default function Page() {
   return (
@@ -7,6 +13,7 @@ export default function Page() {
       <TechStack />
       <LatestProjects />
       <WorkExperience />
+      <DevelopmentProcess />
     </div>
   );
 }

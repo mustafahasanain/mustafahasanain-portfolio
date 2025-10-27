@@ -76,3 +76,15 @@ export interface SEOData {
   ogImage?: string;
   twitterHandle?: string;
 }
+
+export interface DevelopmentPhase {
+  id: number;
+  phase: string;
+  title: string;
+  description: string;
+  animationSpeed: number;
+  containerClassName: string;
+  colors?: number[][];
+  dotSize?: number;
+  hasMask?: boolean;
+}

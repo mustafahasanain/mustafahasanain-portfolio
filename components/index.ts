@@ -10,6 +10,7 @@ export { default as Grid } from "./Grid";
 export { default as ProjectCard } from "./ProjectCard";
 export { default as FigmaButton } from "./FigmaButton";
 export { default as Pagination } from "./Pagination";
+export { default as MagicButton } from "./MagicButton";
 
 // ui component
 export { default as DotGrid } from "./ui/DotGrid";
@@ -18,9 +19,11 @@ export { default as BlurText } from "./ui/BlurText";
 export { CardContainer, CardBody, CardItem } from "./ui/3dCard";
 export { default as ButtonsCard } from "./ui/ButtonsCard";
 export { Button, MovingBorder } from "./ui/MovingBorder";
+export { default as CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 // sections
 export { default as Hero } from "./sections/hero";
 export { default as TechStack } from "./sections/techStack";
 export { default as LatestProjects } from "./sections/latestProjects";
 export { default as WorkExperience } from "./sections/workExperience";
+export { default as DevelopmentProcess } from "./sections/developmentProcess";
