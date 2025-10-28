@@ -14,11 +14,6 @@ interface PhoneInputProps {
   disabled?: boolean;
 }
 
-/**
- * International phone input with country code selector
- * Uses react-phone-number-input library
- * Styled to match the design with dark mode support
- */
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
   ({ label, value, onChange, error, required, disabled }, ref) => {
     return (
@@ -28,10 +23,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
         <div
-          className={cn(
-            "phone-input-wrapper",
-            error && "phone-input-error"
-          )}
+          className={cn("phone-input-wrapper", error && "phone-input-error")}
         >
           <PhoneInputWithCountry
             international
@@ -44,13 +36,12 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
               "bg-background text-foreground",
               "border-border focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20",
               "disabled:opacity-50 disabled:cursor-not-allowed",
-              error && "border-red-500 focus-within:border-red-500 focus-within:ring-red-500/20"
+              error &&
+                "border-red-500 focus-within:border-red-500 focus-within:ring-red-500/20"
             )}
           />
         </div>
-        {error && (
-          <p className="mt-1.5 text-sm text-red-500">{error}</p>
-        )}
+        {error && <p className="mt-1.5 text-sm text-red-500">{error}</p>}
 
         <style jsx global>{`
           .phone-input-wrapper .PhoneInput {
@@ -110,3 +101,5 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 );
 
 PhoneInput.displayName = "PhoneInput";
+
+export default PhoneInput;

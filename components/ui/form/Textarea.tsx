@@ -7,10 +7,6 @@ interface TextareaProps
   error?: string;
 }
 
-/**
- * Reusable Textarea component with dark mode support and error handling
- * Compatible with react-hook-form
- */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, error, className, ...props }, ref) => {
     return (
@@ -39,3 +35,5 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 Textarea.displayName = "Textarea";
+
+export default Textarea;

@@ -5,8 +5,8 @@ const WorkExperience = () => {
   return (
     <section className="w-full py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="heading">Work Experience</h1>
-        <div className="w-full mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+        <h1 className="heading mb-12">Work Experience</h1>
+        <div className="w-full  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
           {workExperience.map((card) => (
             <Button
               key={card.id}
@@ -18,7 +18,7 @@ const WorkExperience = () => {
                 <img
                   src={card.thumbnail}
                   alt={card.thumbnail}
-                  className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 flex-shrink-0"
+                  className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 shrink-0"
                 />
                 <div className="sm:ms-4 lg:ms-0 xl:ms-5 flex-1">
                   <h1 className="text-start text-lg sm:text-xl md:text-2xl font-bold text">

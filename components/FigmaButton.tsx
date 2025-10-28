@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { cn } from "@/lib/utils"; // ✅ optional helper for merging classes
+import { cn } from "@/lib/utils";
 
 interface FigmaButtonProps {
   text: string;

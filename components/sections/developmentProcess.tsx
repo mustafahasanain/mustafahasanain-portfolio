@@ -12,16 +12,18 @@ const DevelopmentProcess = () => {
   return (
     <section className="py-10">
       <div className="container mx-auto px-4 mt-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           Development Process
         </h2>
-        <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-black w-full gap-4 mx-auto px-8">
+        <div className=" flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
           {developmentPhases.map((phaseData) => (
             <Card
               key={phaseData.id}
               phaseData={phaseData}
               isActive={activeCard === phaseData.id}
-              onCardClick={() => setActiveCard(activeCard === phaseData.id ? null : phaseData.id)}
+              onCardClick={() =>
+                setActiveCard(activeCard === phaseData.id ? null : phaseData.id)
+              }
             >
               <CanvasRevealEffect
                 animationSpeed={phaseData.animationSpeed}
@@ -30,7 +32,7 @@ const DevelopmentProcess = () => {
                 dotSize={phaseData.dotSize}
               />
               {phaseData.hasMask && (
-                <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
+                <div className="absolute inset-0 mask-[radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
               )}
             </Card>
           ))}
@@ -58,7 +60,7 @@ const Card = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={onCardClick}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative aspect-square min-h-0 lg:aspect-auto lg:h-[30rem] cursor-pointer lg:cursor-default"
+      className="border border-black/20 group/canvas-card flex items-center justify-center dark:border-white/20  max-w-sm w-full mx-auto p-4 relative aspect-square min-h-0 lg:aspect-auto lg:h-120 cursor-pointer lg:cursor-default"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
@@ -89,19 +91,37 @@ const Card = ({
       </AnimatePresence>
 
       <div className="relative z-20 w-full flex flex-col items-center justify-center h-full">
-        <div className={`text-center text-2xl transition duration-200 w-full mx-auto flex items-center justify-center
+        <div
+          className={`text-center text-2xl transition duration-200 w-full mx-auto flex items-center justify-center
           lg:group-hover/canvas-card:-translate-y-4 lg:group-hover/canvas-card:opacity-0
-          ${isActive ? 'opacity-0 -translate-y-4 lg:opacity-100 lg:translate-y-0' : 'opacity-100'}`}>
+          ${
+            isActive
+              ? "opacity-0 -translate-y-4 lg:opacity-100 lg:translate-y-0"
+              : "opacity-100"
+          }`}
+        >
           <MagicButton text={phaseData.phase} />
         </div>
-        <h2 className={`dark:text-white text-xl text-center relative z-10 text-black mt-4 font-bold transition duration-200
+        <h2
+          className={`dark:text-white text-xl text-center relative z-10 text-black mt-4 font-bold transition duration-200
           lg:opacity-0 lg:group-hover/canvas-card:opacity-100 lg:group-hover/canvas-card:text-white lg:group-hover/canvas-card:-translate-y-2
-          ${isActive ? 'opacity-100 text-white -translate-y-2 lg:opacity-0' : 'opacity-0'}`}>
+          ${
+            isActive
+              ? "opacity-100 text-white -translate-y-2 lg:opacity-0"
+              : "opacity-0"
+          }`}
+        >
           {phaseData.title}
         </h2>
-        <p className={`dark:text-white text-sm relative z-10 text-black mt-4 transition duration-200 text-center
+        <p
+          className={`dark:text-white text-sm relative z-10 text-black mt-4 transition duration-200 text-center
           lg:opacity-0 lg:group-hover/canvas-card:opacity-100 lg:group-hover/canvas-card:text-white lg:group-hover/canvas-card:-translate-y-2
-          ${isActive ? 'opacity-100 text-white -translate-y-2 lg:opacity-0' : 'opacity-0'}`}>
+          ${
+            isActive
+              ? "opacity-100 text-white -translate-y-2 lg:opacity-0"
+              : "opacity-0"
+          }`}
+        >
           {phaseData.description}
         </p>
       </div>

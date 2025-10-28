@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { techStack } from "@/data/skills";
-import TechStackCards from "../ui/TechStackCards";
+import { TechStackCards } from "@/components";
 
 const TechStack = () => {
   return (

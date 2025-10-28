@@ -12,16 +12,12 @@ import {
   Twitter,
   Instagram,
 } from "lucide-react";
-import { Input } from "@/components/ui/form/Input";
-import { Textarea } from "@/components/ui/form/Textarea";
-import { PhoneInput } from "@/components/ui/form/PhoneInput";
-import { Checkbox } from "@/components/ui/form/Checkbox";
 import {
   contactFormSchema,
   ContactFormValues,
 } from "@/lib/validations/contact";
 import { contactInfo, socialLinks } from "@/data/social";
-import { Faq } from "@/components";
+import { Checkbox, Faq, Input, PhoneInput, Textarea } from "@/components";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,7 +47,6 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Web3Forms API endpoint
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {

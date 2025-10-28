@@ -27,6 +27,13 @@ export {
   AccordionTrigger,
   AccordionContent,
 } from "./ui/Accordion";
+export { default as TechStackCards } from "./ui/TechStackCards";
+
+// form components
+export { default as Checkbox } from "./ui/form/Checkbox";
+export { default as Input } from "./ui/form/Input";
+export { default as PhoneInput } from "./ui/form/PhoneInput";
+export { default as Textarea } from "./ui/form/Textarea";
 
 // sections
 export { default as Hero } from "./sections/hero";

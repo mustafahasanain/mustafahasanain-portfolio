@@ -1,9 +1,5 @@
 import { z } from "zod";
 
-/**
- * Contact form validation schema
- * Enforces data integrity and provides clear error messages
- */
 export const contactFormSchema = z.object({
   fullName: z
     .string()
@@ -35,11 +31,9 @@ export const contactFormSchema = z.object({
     .min(10, "Message must be at least 10 characters")
     .max(1000, "Message must not exceed 1000 characters"),
 
-  privacyConsent: z
-    .boolean()
-    .refine((val) => val === true, {
-      message: "You must agree to the privacy policy to continue",
-    }),
+  privacyConsent: z.boolean().refine((val) => val === true, {
+    message: "You must agree to the privacy policy to continue",
+  }),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

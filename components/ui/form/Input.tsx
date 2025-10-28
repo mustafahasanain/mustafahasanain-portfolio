@@ -6,10 +6,6 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-/**
- * Reusable Input component with dark mode support and error handling
- * Compatible with react-hook-form
- */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, className, ...props }, ref) => {
     return (
@@ -25,17 +21,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "bg-background text-foreground placeholder:text-muted-foreground",
             "border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
             "disabled:opacity-50 disabled:cursor-not-allowed",
-            error && "border-red-500 focus:border-red-500 focus:ring-red-500/20",
+            error &&
+              "border-red-500 focus:border-red-500 focus:ring-red-500/20",
             className
           )}
           {...props}
         />
-        {error && (
-          <p className="mt-1.5 text-sm text-red-500">{error}</p>
-        )}
+        {error && <p className="mt-1.5 text-sm text-red-500">{error}</p>}
       </div>
     );
   }
 );
 
 Input.displayName = "Input";
+
+export default Input;

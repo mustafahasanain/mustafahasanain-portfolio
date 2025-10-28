@@ -6,10 +6,6 @@ interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-/**
- * Custom Checkbox component with label and error handling
- * Compatible with react-hook-form
- */
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, error, className, ...props }, ref) => {
     return (
@@ -32,12 +28,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {label}
           </label>
         </div>
-        {error && (
-          <p className="mt-1.5 text-sm text-red-500">{error}</p>
-        )}
+        {error && <p className="mt-1.5 text-sm text-red-500">{error}</p>}
       </div>
     );
   }
 );
 
 Checkbox.displayName = "Checkbox";
+
+export default Checkbox;
