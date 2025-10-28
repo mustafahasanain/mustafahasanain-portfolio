@@ -79,7 +79,7 @@ const Footer = () => {
           </h2>
 
           <a
-            href="#contact"
+            href="/contact"
             className={`block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 ${
               isDark
                 ? "text-white/20 hover:text-white"

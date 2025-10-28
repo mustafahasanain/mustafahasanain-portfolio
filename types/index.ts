@@ -88,3 +88,12 @@ export interface DevelopmentPhase {
   dotSize?: number;
   hasMask?: boolean;
 }
+
+export interface ContactFormData {
+  fullName: string;
+  email: string;
+  companyName?: string;
+  phone: string;
+  message: string;
+  privacyConsent: boolean;
+}
