@@ -2,7 +2,16 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { ArrowUp, Mail, MessageCircle, Send } from "lucide-react";
+import {
+  ArrowUp,
+  Mail,
+  MessageCircle,
+  Send,
+  Facebook,
+  Linkedin,
+  Twitter,
+  Instagram,
+} from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -32,6 +41,33 @@ const Footer = () => {
       icon: MessageCircle,
     },
     { name: "TELEGRAM", url: "https://t.me/mustafahasanain", icon: Send },
+  ];
+
+  const socialMediaLinks = [
+    {
+      id: "facebook",
+      url: "https://www.facebook.com/people/Mustafa-Hasanain-Web-Developer/61582474967319/?mibextid=wwXIfr&rdid=11qzyfqLBCMasXLh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DiKTdww4M%2F%3Fmibextid%3DwwXIfr",
+      icon: Facebook,
+      name: "Facebook",
+    },
+    {
+      id: "linkedin",
+      url: "https://linkedin.com/in/mustafahasanain",
+      icon: Linkedin,
+      name: "LinkedIn",
+    },
+    {
+      id: "x",
+      url: "https://x.com/mustafahasanain",
+      icon: Twitter,
+      name: "X",
+    },
+    {
+      id: "instagram",
+      url: "https://www.instagram.com/mustafahasanain1/",
+      icon: Instagram,
+      name: "Instagram",
+    },
   ];
 
   return (
@@ -115,28 +151,26 @@ const Footer = () => {
             </div>
 
             <div className="flex justify-end">
-              <div className="flex items-center gap-2">
-                <a
-                  href="#"
-                  className={`${
-                    isDark
-                      ? "text-white hover:text-white/70"
-                      : "text-black hover:text-black/70"
-                  }`}
-                >
-                  Privacy Policy
-                </a>
-                <span className="text-gray-500">|</span>
-                <a
-                  href="#"
-                  className={`${
-                    isDark
-                      ? "text-white hover:text-white/70"
-                      : "text-black hover:text-black/70"
-                  }`}
-                >
-                  Terms of Service
-                </a>
+              <div className="flex items-center gap-4">
+                {socialMediaLinks.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                        isDark
+                          ? "border-white/20 bg-white/5 hover:bg-white hover:text-black"
+                          : "border-black/20 bg-black/5 hover:bg-black hover:text-white"
+                      }`}
+                      aria-label={link.name}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>

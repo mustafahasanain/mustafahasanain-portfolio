@@ -8,7 +8,7 @@ export const projects: Project[] = [
       "A movie discovery web app featuring trending films, detailed info, and search functionality using a public movie API.",
     image: "/projects/movie-trending-website.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "https://darkgoldenrod-goshawk-786139.hostingersite.com/",
     githubUrl: "https://github.com/mustafahasanain/react-movie-app",
   },
   {
@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "A visually captivating landing page for a digital agency built with modern web technologies.",
     image: "/projects/xora-landing.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "https://darkorchid-walrus-501311.hostingersite.com/",
     githubUrl: "https://github.com/mustafahasanain/xora-landing-page",
   },
   {
@@ -28,7 +28,7 @@ export const projects: Project[] = [
       "A creative showcase website inspired by Awwwards design standards with smooth interactions and animations.",
     image: "/projects/awwwards.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "https://lightgrey-cat-361121.hostingersite.com/",
     githubUrl: "https://github.com/mustafahasanain/awwwards-winning-website",
   },
   {
@@ -38,7 +38,7 @@ export const projects: Project[] = [
       "A 3D interactive portfolio website integrating Three.js and React Three Fiber for immersive visuals.",
     image: "/projects/3d-portfolio.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "https://snow-alpaca-660933.hostingersite.com/",
     githubUrl: "https://github.com/mustafahasanain/3d-portfolio",
   },
   {
@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "A full-featured admin dashboard for managing travel bookings, clients, and destinations.",
     image: "/projects/travel-dashboard.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "",
     githubUrl: "https://github.com/mustafahasanain/travel-agency-dashboard",
   },
   {
@@ -58,7 +58,7 @@ export const projects: Project[] = [
       "A web platform for sharing and discovering audio recordings, podcasts, and music tracks.",
     image: "/projects/record-share.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "",
     githubUrl: "https://github.com/mustafahasanain/record-share-platform",
   },
   {
@@ -68,7 +68,7 @@ export const projects: Project[] = [
       "A professional medical clinic website with appointment booking and services showcase.",
     image: "/projects/kemaliclinic.png",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "https://powderblue-turkey-333061.hostingersite.com/",
     githubUrl: "https://github.com/mustafahasanain/kemaliclinic",
   },
   {
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       "An AI-powered web app that analyzes resumes and provides improvement suggestions using NLP.",
     image: "/projects/ai-resume.png",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "",
     githubUrl: "https://github.com/mustafahasanain/ai-resume-analyzer",
   },
   {
@@ -88,7 +88,7 @@ export const projects: Project[] = [
       "A Nike-inspired e-commerce web app with product filtering, cart, and checkout functionalities.",
     image: "/projects/nike-ecommerce.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/app.svg", "/host.svg"],
-    liveUrl: "fill-yours-info",
+    liveUrl: "",
     githubUrl: "https://github.com/mustafahasanain/nike-ecommerce",
   },
 ];

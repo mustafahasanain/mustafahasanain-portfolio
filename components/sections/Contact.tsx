@@ -37,7 +37,7 @@ export default function Contact() {
       companyName: "",
       phone: "",
       message: "",
-      privacyConsent: false,
+      contactConsent: false,
     },
   });
 
@@ -217,31 +217,19 @@ export default function Contact() {
                 error={errors.message?.message}
               />
 
-              {/* Privacy Consent */}
               <Checkbox
                 label={
-                  <span>
-                    I'd like to receive more information about company. I
-                    understand and agree to the{" "}
-                    <a
-                      href="/privacy-policy"
-                      className="text-primary hover:underline"
-                      target="_blank"
-                    >
-                      Privacy Policy
-                    </a>
-                    .
-                  </span>
+                  <span>I agree to be contacted regarding my message.</span>
                 }
-                {...register("privacyConsent")}
-                error={errors.privacyConsent?.message}
+                {...register("contactConsent")}
+                error={errors.contactConsent?.message}
               />
 
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-black dark:bg-white hover:dark:bg-white/80 hover:bg-black/80 cursor-pointer disabled:bg-blue-400 text-white dark:text-black font-semibold py-3.5 px-8 rounded-lg transition-colors duration-200 disabled:cursor-not-allowed"
+                className="w-full bg-black dark:bg-white hover:dark:bg-white/80 hover:bg-black/80 cursor-pointer disabled:bg-[#cccccc] text-white dark:text-black font-semibold py-3.5 px-8 rounded-lg transition-colors duration-200 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>

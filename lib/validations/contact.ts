@@ -31,8 +31,8 @@ export const contactFormSchema = z.object({
     .min(10, "Message must be at least 10 characters")
     .max(1000, "Message must not exceed 1000 characters"),
 
-  privacyConsent: z.boolean().refine((val) => val === true, {
-    message: "You must agree to the privacy policy to continue",
+  contactConsent: z.boolean().refine((val) => val === true, {
+    message: "Please confirm that we can contact you.",
   }),
 });
 
