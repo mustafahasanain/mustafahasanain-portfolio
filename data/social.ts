@@ -7,7 +7,6 @@ export const socialLinks: SocialLink[] = [
     url: "https://github.com/mustafahasanain",
     icon: "github",
     username: "@mustafahasanain",
-    color: "#181717",
   },
   {
     id: "linkedin",
@@ -15,7 +14,6 @@ export const socialLinks: SocialLink[] = [
     url: "https://linkedin.com/in/mustafahasanain",
     icon: "linkedin",
     username: "mustafahasanain",
-    color: "#0A66C2",
   },
   {
     id: "x",
@@ -23,7 +21,13 @@ export const socialLinks: SocialLink[] = [
     url: "https://x.com/mustafahasanain",
     icon: "x",
     username: "@m7asanain",
-    color: "#1DA1F2",
+  },
+  {
+    id: "facebook",
+    name: "Facebook",
+    url: "https://www.facebook.com/people/Mustafa-Hasanain-Web-Developer/61582474967319/?mibextid=wwXIfr&rdid=11qzyfqLBCMasXLh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DiKTdww4M%2F%3Fmibextid%3DwwXIfr",
+    icon: "facebook",
+    username: "Mustafa Hasanain Web Developer",
   },
   {
     id: "instagram",
@@ -31,7 +35,6 @@ export const socialLinks: SocialLink[] = [
     url: "https://www.instagram.com/mustafahasanain1/",
     icon: "x",
     username: "@mustafahasanain1",
-    color: "#1DA1F2",
   },
   {
     id: "whatsapp",
@@ -39,7 +42,6 @@ export const socialLinks: SocialLink[] = [
     url: "https://wa.me/7904188727",
     icon: "whatsapp",
     username: "7904188727",
-    color: "#EA4335",
   },
   {
     id: "email",
@@ -47,7 +49,6 @@ export const socialLinks: SocialLink[] = [
     url: "mailto:contact@mustafahasanain.com",
     icon: "email",
     username: "contact@mustafahasanain.com",
-    color: "#EA4335",
   },
 ];
 

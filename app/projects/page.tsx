@@ -24,47 +24,12 @@ const ProjectsPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            All <span className="text-purple">Projects</span>
+            All Projects
           </h1>
           <p className="text-center text-neutral-500 dark:text-neutral-400 mb-0 max-w-2xl mx-auto">
             A comprehensive collection of my work including web applications,
             mobile apps, and innovative digital solutions
           </p>
-
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <h3 className="text-4xl font-bold text-purple mb-2">
-                {projects.length}
-              </h3>
-              <p className="text-neutral-500 dark:text-neutral-400">
-                Total Projects
-              </p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-purple mb-2">
-                {projects.filter((p) => p.featured).length}
-              </h3>
-              <p className="text-neutral-500 dark:text-neutral-400">
-                Featured Projects
-              </p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-purple mb-2">
-                {projects.filter((p) => p.category === "web").length}
-              </h3>
-              <p className="text-neutral-500 dark:text-neutral-400">
-                Web Applications
-              </p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-purple mb-2">
-                {projects.filter((p) => p.category === "mobile").length}
-              </h3>
-              <p className="text-neutral-500 dark:text-neutral-400">
-                Mobile Apps
-              </p>
-            </div>
-          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
             {currentProjects.map((project) => (

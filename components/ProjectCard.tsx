@@ -5,51 +5,51 @@ import Image from "next/image";
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/10 dark:bg-black dark:border-white/20 border-black/10 w-full md:w-[400px] lg:w-[450px] h-auto rounded-xl p-5 border">
+      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/10 dark:bg-black dark:border-white/20 border-black/10 w-full h-auto rounded-xl p-4 sm:p-5 border">
         <CardItem translateZ="100" className="w-full">
           <Image
             src={project.image}
             height={1000}
             width={1000}
-            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            className="h-48 sm:h-56 md:h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
             alt={project.title}
           />
         </CardItem>
 
         <CardItem
           translateZ="50"
-          className="text-xl font-bold text-neutral-600 dark:text-white mt-4"
+          className="text-lg sm:text-xl font-bold text-neutral-600 dark:text-white mt-3 sm:mt-4"
         >
           {project.title}
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
-          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+          className="text-neutral-500 text-xs sm:text-sm max-w-sm mt-2 dark:text-neutral-300 line-clamp-3"
         >
           {project.description}
         </CardItem>
 
         {/* Tech Stack Icons */}
-        <CardItem translateZ="50" className="flex gap-2 mt-4">
+        <CardItem translateZ="50" className="flex flex-wrap gap-2 mt-3 sm:mt-4">
           {project.iconLists.map((icon, index) => (
             <div
               key={index}
-              className="border border-white/20 rounded-full bg-black w-10 h-10 flex justify-center items-center"
+              className="border border-white/20 rounded-full bg-black w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center"
             >
-              <Image src={icon} alt="tech icon" width={24} height={24} />
+              <Image src={icon} alt="tech icon" width={20} height={20} className="sm:w-6 sm:h-6" />
             </div>
           ))}
         </CardItem>
 
-        <div className="flex justify-between items-center mt-6">
+        <div className="flex flex-wrap gap-3 justify-between items-center mt-4 sm:mt-6">
           {project.githubUrl && (
             <CardItem
               translateZ={20}
               as="a"
               href={project.githubUrl}
               target="_blank"
-              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:underline"
+              className="px-3 sm:px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:underline"
             >
               View Code
             </CardItem>
@@ -60,7 +60,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               as="a"
               href={project.liveUrl}
               target="_blank"
-              className="px-4 py-2 rounded-lg bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+              className="px-3 sm:px-4 py-2 rounded-lg bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
             >
               Live Demo →
             </CardItem>

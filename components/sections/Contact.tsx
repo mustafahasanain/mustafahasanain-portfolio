@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast, Toaster } from "sonner";
 import {
-  MapPin,
   Mail,
   Phone,
   Facebook,
@@ -22,17 +21,8 @@ import {
   ContactFormValues,
 } from "@/lib/validations/contact";
 import { contactInfo, socialLinks } from "@/data/social";
-import Faq from "../Faq";
+import { Faq } from "@/components";
 
-/**
- * Contact Section Component
- * Features:
- * - Left panel: Contact information (location, email, phone, social media)
- * - Right panel: Contact form with validation
- * - Web3Forms integration for email delivery
- * - Full dark mode support
- * - Responsive design (mobile-first)
- */
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -104,7 +94,6 @@ export default function Contact() {
     facebook: Facebook,
     linkedin: Linkedin,
     x: Twitter,
-    twitter: Twitter,
     instagram: Instagram,
   };
 
@@ -122,26 +111,10 @@ export default function Contact() {
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-12">
           {/* Left Panel - Contact Information */}
-          {/* <div className="bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-3xl p-8 md:p-12 text-white"> */}
           <div className="bg-black dark:bg-white rounded-3xl p-8 md:p-12 text-white dark:text-black">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
               Get in touch
             </h2>
-
-            {/* Visit us */}
-            {/* <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
-                Visit us
-              </h3>
-              <p className="text-white/90 text-sm md:text-base leading-relaxed">
-                Come say hello at our office HQ.
-                <br />
-                {contactInfo.location}
-                <br />
-                Timezone: {contactInfo.timezone}
-              </p>
-            </div> */}
 
             {/* Chat to us */}
             <div className="mb-8">

@@ -5,12 +5,8 @@ export interface Project {
   longDescription?: string;
   image: string;
   iconLists: string[];
-  tags: string[];
   liveUrl?: string;
   githubUrl?: string;
-  featured: boolean;
-  category: string;
-  year: number;
 }
 
 export interface ProjectCardProps {
@@ -51,7 +47,6 @@ export interface SocialLink {
   url: string;
   icon: string;
   username?: string;
-  color?: string;
 }
 
 export interface ContactInfo {
@@ -66,7 +61,6 @@ export interface NavItem {
   id: string;
   label: string;
   href: string;
-  external?: boolean;
 }
 
 export interface SEOData {
@@ -85,8 +79,6 @@ export interface DevelopmentPhase {
   animationSpeed: number;
   containerClassName: string;
   colors?: number[][];
-  dotSize?: number;
-  hasMask?: boolean;
 }
 
 export interface ContactFormData {

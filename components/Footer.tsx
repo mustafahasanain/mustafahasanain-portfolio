@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { ArrowUp, Mail, MessageCircle, Send } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -78,7 +79,7 @@ const Footer = () => {
             HAVE A PROJECT IN MIND?
           </h2>
 
-          <a
+          <Link
             href="/contact"
             className={`block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 ${
               isDark
@@ -87,7 +88,7 @@ const Footer = () => {
             }`}
           >
             LET'S TALK
-          </a>
+          </Link>
 
           <div className="flex items-center justify-between w-full flex-wrap gap-4">
             <div className="flex flex-wrap gap-4 justify-start sm:flex-nowrap sm:gap-4 [@media(max-width:640px)]:flex-nowrap [@media(max-width:640px)]:gap-2">

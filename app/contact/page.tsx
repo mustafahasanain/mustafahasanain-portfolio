@@ -1,6 +1,5 @@
+import { Contact } from "@/components";
 import type { Metadata } from "next";
-import Contact from "@/components/sections/Contact";
-import { Faq } from "@/components";
 
 export const metadata: Metadata = {
   title: "Contact | Mustafa Hasanain",

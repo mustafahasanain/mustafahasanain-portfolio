@@ -34,3 +34,4 @@ export { default as TechStack } from "./sections/techStack";
 export { default as LatestProjects } from "./sections/latestProjects";
 export { default as WorkExperience } from "./sections/workExperience";
 export { default as DevelopmentProcess } from "./sections/developmentProcess";
+export { default as Contact } from "./sections/Contact";
