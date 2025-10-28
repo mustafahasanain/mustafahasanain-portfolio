@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Contact from "@/components/sections/Contact";
+import { Faq } from "@/components";
 
 export const metadata: Metadata = {
   title: "Contact | Mustafa Hasanain",
@@ -21,10 +22,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Contact Page
- * Displays contact information and form for visitors to reach out
- */
 export default function ContactPage() {
   return (
     <main className="min-h-screen">

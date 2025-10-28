@@ -22,6 +22,7 @@ import {
   ContactFormValues,
 } from "@/lib/validations/contact";
 import { contactInfo, socialLinks } from "@/data/social";
+import Faq from "../Faq";
 
 /**
  * Contact Section Component
@@ -279,6 +280,9 @@ export default function Contact() {
             </form>
           </div>
         </div>
+
+        {/* Frequently Asked Questions */}
+        <Faq />
       </div>
     </section>
   );

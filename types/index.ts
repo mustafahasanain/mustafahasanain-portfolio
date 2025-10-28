@@ -97,3 +97,8 @@ export interface ContactFormData {
   message: string;
   privacyConsent: boolean;
 }
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
