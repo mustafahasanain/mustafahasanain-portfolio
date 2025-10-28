@@ -545,7 +545,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     onMouseLeave={hoverOut}
                     onClick={(e) => {
                       handleSmoothScroll(e, item.href);
-                      setIsMobileMenuOpen(false);
+                      toggleMobileMenu();
                     }}
                   >
                     {item.label}
@@ -559,7 +559,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     onMouseLeave={hoverOut}
                     onClick={(e) => {
                       handleSmoothScroll(e, item.href);
-                      setIsMobileMenuOpen(false);
+                      toggleMobileMenu();
                     }}
                   >
                     {item.label}

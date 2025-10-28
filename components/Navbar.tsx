@@ -19,14 +19,14 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY < 50) {
-        // Always show navbar at the top
+      if (currentScrollY < 10) {
+        // Always show navbar at the very top
         setIsVisible(true);
       } else if (currentScrollY < lastScrollY) {
         // Scrolling up - show navbar immediately
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY) {
-        // Scrolling down - hide navbar immediately
+        // Scrolling down - hide navbar completely
         setIsVisible(false);
       }
 
@@ -44,9 +44,10 @@ const Navbar = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out"
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
       style={{
-        transform: isVisible ? "translateY(0)" : "translateY(-100%)",
+        transform: isVisible ? "translateY(0)" : "translateY(-150%)",
+        opacity: isVisible ? 1 : 0,
       }}
     >
       <PillNav
