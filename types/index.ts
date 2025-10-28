@@ -79,6 +79,8 @@ export interface DevelopmentPhase {
   animationSpeed: number;
   containerClassName: string;
   colors?: number[][];
+  dotSize?: number;
+  hasMask?: boolean;
 }
 
 export interface ContactFormData {
