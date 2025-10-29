@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Jost, Cairo } from "next/font/google";
 import { Footer, Navbar, ThemeProvider } from "@/components";
-import { locales } from "@/i18n";
+import { locales, defaultLocale } from "@/i18n";
 import "../globals.css";
 
 const jost = Jost({
@@ -34,6 +34,11 @@ export async function generateMetadata(props: Omit<Props, "children">): Promise<
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: "metadata.home" });
 
+  // Create locale-aware URL (no prefix for default locale)
+  const siteUrl = locale === defaultLocale
+    ? "https://mustafahasanain.com"
+    : `https://mustafahasanain.com/${locale}`;
+
   return {
     title: t("title"),
     description: t("description"),
@@ -43,7 +48,7 @@ export async function generateMetadata(props: Omit<Props, "children">): Promise<
     openGraph: {
       type: "website",
       locale: locale === "en" ? "en_US" : locale === "ar" ? "ar_SA" : "tr_TR",
-      url: `https://mustafahasanain.com/${locale}`,
+      url: siteUrl,
       title: t("title"),
       description: t("description"),
       siteName: "Mustafa Hasanain Portfolio",

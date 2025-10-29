@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   ArrowUp,
   Mail,
@@ -14,10 +14,12 @@ import {
   Instagram,
 } from "lucide-react";
 import Link from "next/link";
+import { defaultLocale } from "@/i18n";
 
 const Footer = () => {
   const { theme } = useTheme();
   const t = useTranslations("footer");
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -31,6 +33,14 @@ const Footer = () => {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => {
+    if (locale === defaultLocale) {
+      return path;
+    }
+    return `/${locale}${path}`;
   };
 
   const currentYear = new Date().getFullYear();
@@ -118,7 +128,7 @@ const Footer = () => {
           </h2>
 
           <Link
-            href="/contact"
+            href={getLocalePath("/contact")}
             className={`block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 ${
               isDark
                 ? "text-white/20 hover:text-white"

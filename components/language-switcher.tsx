@@ -1,13 +1,20 @@
 "use client";
 
-import { useParams } from "next/navigation";
-import Link from "next/link";
-import { Locale, localeNames, localeFlags } from "@/i18n";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import {
+  Locale,
+  locales,
+  localeNames,
+  localeFlags,
+  defaultLocale,
+} from "@/i18n";
 import { useState, useRef, useEffect } from "react";
 
 export function LanguageSwitcher() {
   const params = useParams();
-  const currentLocale = params.locale as Locale;
+  const pathname = usePathname();
+  const router = useRouter();
+  const currentLocale = (params.locale as Locale) || defaultLocale;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -25,12 +32,46 @@ export function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const getLocalePath = (locale: Locale) => {
-    const pathname = window.location.pathname;
-    // Remove the current locale from the pathname
-    const pathWithoutLocale = pathname.replace(/^\/(en|ar|tr)/, "");
-    // Add the new locale
-    return `/${locale}${pathWithoutLocale}`;
+  const handleLocaleChange = (newLocale: Locale) => {
+    setIsOpen(false);
+
+    // Don't do anything if clicking the current locale
+    if (newLocale === currentLocale) {
+      return;
+    }
+
+    // Get the full browser pathname
+    const fullPathname = window.location.pathname;
+
+    // Remove any existing locale from the path
+    // Split into segments and filter out empty strings
+    const segments = fullPathname.split("/").filter(Boolean);
+
+    // Check if first segment is a locale and remove it
+    const pathSegments =
+      segments[0] && locales.includes(segments[0] as Locale)
+        ? segments.slice(1)
+        : segments;
+
+    // Reconstruct the path without locale
+    const pathWithoutLocale =
+      pathSegments.length > 0 ? "/" + pathSegments.join("/") : "/";
+
+    console.log("=== Language Switch Debug ===");
+    console.log("Current locale:", currentLocale);
+    console.log("New locale:", newLocale);
+    console.log("Full pathname:", fullPathname);
+    console.log("Path without locale:", pathWithoutLocale);
+
+    // Construct the new URL - always use locale prefix initially
+    const newPath = `/${newLocale}${pathWithoutLocale}`;
+
+    console.log("Navigating to:", newPath);
+    console.log("============================");
+
+    // Force a full page reload to ensure proper locale change
+    // The middleware will handle redirecting /en to / if needed
+    window.location.href = newPath;
   };
 
   return (
@@ -46,7 +87,9 @@ export function LanguageSwitcher() {
           {localeNames[currentLocale]}
         </span>
         <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-4 h-4 transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -61,21 +104,16 @@ export function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full mt-2 right-0 sm:left-0 sm:right-auto min-w-[160px] bg-popover border border-border rounded-lg shadow-lg overflow-hidden z-50">
+        <div className="absolute top-full mt-2 right-0 min-w-40 bg-popover border border-border rounded-lg shadow-lg overflow-hidden z-50">
           {Object.entries(localeNames).map(([locale, name]) => (
-            <Link
+            <button
               key={locale}
-              href={getLocalePath(locale as Locale)}
-              onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 hover:bg-accent transition-colors ${
-                currentLocale === locale
-                  ? "bg-accent/50 font-semibold"
-                  : ""
+              onClick={() => handleLocaleChange(locale as Locale)}
+              className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-accent transition-colors ${
+                currentLocale === locale ? "bg-accent/50 font-semibold" : ""
               }`}
             >
-              <span className="text-lg">
-                {localeFlags[locale as Locale]}
-              </span>
+              <span className="text-lg">{localeFlags[locale as Locale]}</span>
               <span className="text-sm">{name}</span>
               {currentLocale === locale && (
                 <svg
@@ -90,7 +128,7 @@ export function LanguageSwitcher() {
                   />
                 </svg>
               )}
-            </Link>
+            </button>
           ))}
         </div>
       )}

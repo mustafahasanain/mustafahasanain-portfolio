@@ -59,10 +59,50 @@
     "cta": "More Projects"
   },
   "workExperience": {
-    "title": "Work Experience"
+    "title": "Work Experience",
+    "items": {
+      "1": {
+        "title": "Frontend Development",
+        "description": "Built responsive web apps using Next.js, JavaScript, and TypeScript, ensuring smooth user experiences and modern UI aesthetics."
+      },
+      "2": {
+        "title": "Backend Development",
+        "description": "I have developed backend systems with Node.js and Express.js, handling APIs, databases, and server-side logic."
+      },
+      "3": {
+        "title": "Graphic Design",
+        "description": "Created branding materials, marketing assets, and digital graphics using Photoshop, Illustrator, Figma, and Canva, delivering visually engaging and cohesive designs tailored to client needs."
+      },
+      "4": {
+        "title": "WordPress Developer",
+        "description": "I have created custom WordPress websites, including a personal portfolio and a time scheduling app with tailored functionality and responsive design."
+      }
+    }
   },
   "developmentProcess": {
-    "title": "Development Process"
+    "title": "Development Process",
+    "phases": {
+      "1": {
+        "phase": "Phase 1",
+        "title": "Planning & Analysis",
+        "description": "I analyze project goals, target users, and technical requirements to define a clear scope and strategic plan that guides development."
+      },
+      "2": {
+        "phase": "Phase 2",
+        "title": "Design",
+        "description": "I create mockups and prototypes that align with user needs and brand identity, ensuring an intuitive and visually appealing interface."
+      },
+      "3": {
+        "phase": "Phase 3",
+        "title": "Development & Testing",
+        "description": "I build the application using modern technologies, writing clean and maintainable code, followed by rigorous testing to ensure quality and performance."
+      },
+      "4": {
+        "phase": "Phase 4",
+        "title": "Deployment & Maintenance",
+        "description": "I deploy the application to production, monitor its performance, and provide ongoing support and updates to ensure smooth operation."
+      }
+    }
   },
   "projects": {
     "pageTitle": "All Projects",
@@ -75,6 +115,44 @@
         "message": "This project is not currently live. Would you like to view the project code instead?",
         "no": "No",
         "yes": "Yes"
+      }
+    },
+    "items": {
+      "1": {
+        "title": "React Movie App",
+        "description": "A movie discovery web app featuring trending films, detailed info, and search functionality using a public movie API."
+      },
+      "2": {
+        "title": "Xora Landing Page",
+        "description": "A visually captivating landing page for a digital agency built with modern web technologies."
+      },
+      "3": {
+        "title": "Awwwards Winning Website",
+        "description": "A creative showcase website inspired by Awwwards design standards with smooth interactions and animations."
+      },
+      "4": {
+        "title": "3D Portfolio",
+        "description": "A 3D interactive portfolio website integrating Three.js and React Three Fiber for immersive visuals."
+      },
+      "5": {
+        "title": "Travel Agency Dashboard",
+        "description": "A full-featured admin dashboard for managing travel bookings, clients, and destinations."
+      },
+      "6": {
+        "title": "Record Share Platform",
+        "description": "A web platform for sharing and discovering audio recordings, podcasts, and music tracks."
+      },
+      "7": {
+        "title": "Kemali Clinic",
+        "description": "A professional medical clinic website with appointment booking and services showcase."
+      },
+      "8": {
+        "title": "AI Resume Analyzer",
+        "description": "An AI-powered web app that analyzes resumes and provides improvement suggestions using NLP."
+      },
+      "9": {
+        "title": "Nike E-Commerce",
+        "description": "A Nike-inspired e-commerce web app with product filtering, cart, and checkout functionalities."
       }
     }
   },

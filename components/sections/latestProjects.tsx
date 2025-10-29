@@ -3,11 +3,20 @@
 import { ProjectCard, FigmaButton } from "@/components";
 import { getRecentProjects } from "@/data/projects";
 import { useTranslations, useLocale } from "next-intl";
+import { defaultLocale } from "@/i18n";
 
 const LatestProjects = () => {
   const t = useTranslations("latestProjects");
   const locale = useLocale();
   const recentProjects = getRecentProjects(3);
+
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => {
+    if (locale === defaultLocale) {
+      return path;
+    }
+    return `/${locale}${path}`;
+  };
 
   return (
     <section className="py-12 sm:py-16 md:py-20" id="projects">
@@ -26,7 +35,7 @@ const LatestProjects = () => {
         </div>
 
         <div className="flex gap-4 justify-center mt-4 sm:mt-2">
-          <FigmaButton text={t("cta")} url={`/${locale}/projects`} variant="outline" />
+          <FigmaButton text={t("cta")} url={getLocalePath("/projects")} variant="outline" />
         </div>
       </div>
     </section>

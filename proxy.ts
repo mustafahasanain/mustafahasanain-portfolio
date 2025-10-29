@@ -8,11 +8,13 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale,
 
-  // Always use locale prefix (e.g., /en, /ar, /tr)
-  localePrefix: "always",
+  // Hide default locale in URL
+  localePrefix: "as-needed",
 });
 
 export const config = {
-  // Match only internationalized pathnames
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
   matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

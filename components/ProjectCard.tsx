@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const t = useTranslations("projects.card");
+  const tItems = useTranslations("projects.items");
   const [showModal, setShowModal] = useState(false);
 
   const handleLiveDemoClick = (e: React.MouseEvent) => {
@@ -40,14 +41,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             translateZ="50"
             className="text-lg sm:text-xl font-bold text-neutral-600 dark:text-white mt-3 sm:mt-4"
           >
-            {project.title}
+            {tItems(`${project.id}.title`)}
           </CardItem>
           <CardItem
             as="p"
             translateZ="60"
             className="text-neutral-500 text-xs sm:text-sm max-w-sm mt-2 dark:text-neutral-300 line-clamp-3"
           >
-            {project.description}
+            {tItems(`${project.id}.description`)}
           </CardItem>
 
           {/* Tech Stack Icons */}

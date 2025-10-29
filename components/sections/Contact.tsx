@@ -18,8 +18,10 @@ import {
 } from "@/lib/validations/contact";
 import { contactInfo, socialLinks } from "@/data/social";
 import { Checkbox, Faq, Input, PhoneInput, Textarea } from "@/components";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("contact");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -67,16 +69,16 @@ export default function Contact() {
       const result = await response.json();
 
       if (result.success) {
-        toast.success("Message sent successfully!", {
-          description: "Thank you for reaching out. I'll get back to you soon.",
+        toast.success(t("form.success.title"), {
+          description: t("form.success.description"),
         });
         reset();
       } else {
         throw new Error(result.message || "Failed to send message");
       }
     } catch (error) {
-      toast.error("Failed to send message", {
-        description: "Please try again or contact me directly via email.",
+      toast.error(t("form.error.title"), {
+        description: t("form.error.description"),
       });
       console.error("Form submission error:", error);
     } finally {
@@ -102,23 +104,23 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Contact Me
+          {t("pageTitle")}
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-12">
           {/* Left Panel - Contact Information */}
           <div className="bg-black dark:bg-white rounded-3xl p-8 md:p-12 text-white dark:text-black">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              Get in touch
+              {t("heading")}
             </h2>
 
             {/* Chat to us */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                 <Mail className="w-5 h-5" />
-                Chat to me
+                {t("chatToMe.title")}
               </h3>
               <p className="text-white/90 dark:text-black text-sm md:text-base mb-2">
-                Feel free to reach out - I will get back to you soon.
+                {t("chatToMe.description")}
               </p>
               <a
                 href={`mailto:${contactInfo.email}`}
@@ -132,10 +134,10 @@ export default function Contact() {
             <div className="mb-10">
               <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                Call me
+                {t("callMe.title")}
               </h3>
               <p className="text-white/90 dark:text-black text-sm md:text-base mb-2">
-                Sat-Thu from 8am to 5pm.
+                {t("callMe.hours")}
               </p>
               <a
                 href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
@@ -147,7 +149,7 @@ export default function Contact() {
 
             {/* Social media */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Social media</h3>
+              <h3 className="text-lg font-semibold mb-4">{t("socialMedia")}</h3>
               <div className="flex gap-4">
                 {contactSocials.map((link) => {
                   const Icon = iconMap[link.id] || Facebook;
@@ -173,8 +175,8 @@ export default function Contact() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Full Name */}
               <Input
-                label="Full Name"
-                placeholder="John Doe"
+                label={t("form.fullName")}
+                placeholder={t("form.fullNamePlaceholder")}
                 required
                 {...register("fullName")}
                 error={errors.fullName?.message}
@@ -182,17 +184,17 @@ export default function Contact() {
 
               {/* Company Name */}
               <Input
-                label="Company Name"
-                placeholder="Your Company Ltd."
+                label={t("form.companyName")}
+                placeholder={t("form.companyNamePlaceholder")}
                 {...register("companyName")}
                 error={errors.companyName?.message}
               />
 
               {/* Email */}
               <Input
-                label="Email"
+                label={t("form.email")}
                 type="email"
-                placeholder="john@example.com"
+                placeholder={t("form.emailPlaceholder")}
                 required
                 {...register("email")}
                 error={errors.email?.message}
@@ -200,7 +202,7 @@ export default function Contact() {
 
               {/* Phone Number */}
               <PhoneInput
-                label="Phone Number"
+                label={t("form.phoneNumber")}
                 value={phoneValue}
                 onChange={(value) => setValue("phone", value || "")}
                 error={errors.phone?.message}
@@ -209,8 +211,8 @@ export default function Contact() {
 
               {/* Message */}
               <Textarea
-                label="Message"
-                placeholder="Tell me about your project or what you would like to build."
+                label={t("form.message")}
+                placeholder={t("form.messagePlaceholder")}
                 rows={5}
                 required
                 {...register("message")}
@@ -219,7 +221,7 @@ export default function Contact() {
 
               <Checkbox
                 label={
-                  <span>I agree to be contacted regarding my message.</span>
+                  <span>{t("form.consent")}</span>
                 }
                 {...register("contactConsent")}
                 error={errors.contactConsent?.message}
@@ -231,7 +233,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full bg-black dark:bg-white hover:dark:bg-white/80 hover:bg-black/80 cursor-pointer disabled:bg-[#cccccc] text-white dark:text-black font-semibold py-3.5 px-8 rounded-lg transition-colors duration-200 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? t("form.submitting") : t("form.submit")}
               </button>
             </form>
           </div>

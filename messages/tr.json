@@ -59,10 +59,50 @@
     "cta": "Daha Fazla Proje"
   },
   "workExperience": {
-    "title": "İş Deneyimi"
+    "title": "İş Deneyimi",
+    "items": {
+      "1": {
+        "title": "Frontend Geliştirme",
+        "description": "Next.js, JavaScript ve TypeScript kullanarak duyarlı web uygulamaları oluşturdum, pürüzsüz kullanıcı deneyimleri ve modern UI estetiği sağladım."
+      },
+      "2": {
+        "title": "Backend Geliştirme",
+        "description": "Node.js ve Express.js ile backend sistemleri geliştirdim, API'ler, veritabanları ve sunucu tarafı mantığını yönettim."
+      },
+      "3": {
+        "title": "Grafik Tasarım",
+        "description": "Photoshop, Illustrator, Figma ve Canva kullanarak marka malzemeleri, pazarlama varlıkları ve dijital grafikler oluşturdum, müşteri ihtiyaçlarına göre uyarlanmış görsel olarak çekici ve uyumlu tasarımlar sundum."
+      },
+      "4": {
+        "title": "WordPress Geliştirici",
+        "description": "Kişisel portföy ve özelleştirilmiş işlevsellik ve duyarlı tasarıma sahip bir zaman planlama uygulaması dahil olmak üzere özel WordPress web siteleri oluşturdum."
+      }
+    }
   },
   "developmentProcess": {
-    "title": "Geliştirme Süreci"
+    "title": "Geliştirme Süreci",
+    "phases": {
+      "1": {
+        "phase": "Faz 1",
+        "title": "Planlama ve Analiz",
+        "description": "Geliştirmeyi yönlendiren net bir kapsam ve stratejik plan tanımlamak için proje hedeflerini, hedef kullanıcıları ve teknik gereksinimleri analiz ediyorum."
+      },
+      "2": {
+        "phase": "Faz 2",
+        "title": "Tasarım",
+        "description": "Kullanıcı ihtiyaçları ve marka kimliğiyle uyumlu maketler ve prototipler oluşturuyorum, sezgisel ve görsel olarak çekici bir arayüz sağlıyorum."
+      },
+      "3": {
+        "phase": "Faz 3",
+        "title": "Geliştirme ve Test",
+        "description": "Modern teknolojileri kullanarak uygulamayı oluşturuyorum, temiz ve bakımı kolay kod yazıyorum, ardından kalite ve performansı sağlamak için titiz testler yapıyorum."
+      },
+      "4": {
+        "phase": "Faz 4",
+        "title": "Dağıtım ve Bakım",
+        "description": "Uygulamayı üretime dağıtıyorum, performansını izliyorum ve sorunsuz çalışmayı sağlamak için sürekli destek ve güncellemeler sağlıyorum."
+      }
+    }
   },
   "projects": {
     "pageTitle": "Tüm Projeler",
@@ -75,6 +115,44 @@
         "message": "Bu proje şu anda canlı değil. Bunun yerine proje kodunu görüntülemek ister misiniz?",
         "no": "Hayır",
         "yes": "Evet"
+      }
+    },
+    "items": {
+      "1": {
+        "title": "React Film Uygulaması",
+        "description": "Trend filmler, detaylı bilgiler ve genel bir film API'si kullanarak arama işlevselliği sunan bir film keşif web uygulaması."
+      },
+      "2": {
+        "title": "Xora Açılış Sayfası",
+        "description": "Modern web teknolojileriyle oluşturulmuş bir dijital ajans için görsel olarak büyüleyici bir açılış sayfası."
+      },
+      "3": {
+        "title": "Awwwards Ödüllü Web Sitesi",
+        "description": "Awwwards tasarım standartlarından ilham alan, pürüzsüz etkileşimler ve animasyonlar içeren yaratıcı bir vitrin web sitesi."
+      },
+      "4": {
+        "title": "3D Portföy",
+        "description": "Sürükleyici görseller için Three.js ve React Three Fiber'ı entegre eden 3D etkileşimli bir portföy web sitesi."
+      },
+      "5": {
+        "title": "Seyahat Acentesi Gösterge Paneli",
+        "description": "Seyahat rezervasyonlarını, müşterileri ve destinasyonları yönetmek için tam özellikli bir yönetim gösterge paneli."
+      },
+      "6": {
+        "title": "Kayıt Paylaşım Platformu",
+        "description": "Ses kayıtları, podcast'ler ve müzik parçalarını paylaşmak ve keşfetmek için bir web platformu."
+      },
+      "7": {
+        "title": "Kemali Kliniği",
+        "description": "Randevu rezervasyonu ve hizmet vitrini ile profesyonel bir tıbbi klinik web sitesi."
+      },
+      "8": {
+        "title": "Yapay Zeka Özgeçmiş Analizörü",
+        "description": "NLP kullanarak özgeçmişleri analiz eden ve iyileştirme önerileri sunan yapay zeka destekli bir web uygulaması."
+      },
+      "9": {
+        "title": "Nike E-Ticaret",
+        "description": "Ürün filtreleme, sepet ve ödeme işlevleriyle Nike'dan ilham alan bir e-ticaret web uygulaması."
       }
     }
   },

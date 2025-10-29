@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 
 const WorkExperience = () => {
   const t = useTranslations("workExperience");
+  const tItems = useTranslations("workExperience.items");
 
   return (
     <section className="w-full py-12 sm:py-16 md:py-20">
@@ -27,10 +28,10 @@ const WorkExperience = () => {
                 />
                 <div className="sm:ms-4 lg:ms-0 xl:ms-5 flex-1">
                   <h1 className="text-start text-lg sm:text-xl md:text-2xl font-bold text">
-                    {card.title}
+                    {tItems(`${card.id}.title`)}
                   </h1>
                   <p className="text-start text-white-300 mt-2 sm:mt-3 font-semibold text-sm sm:text-base">
-                    {card.description}
+                    {tItems(`${card.id}.description`)}
                   </p>
                 </div>
               </div>

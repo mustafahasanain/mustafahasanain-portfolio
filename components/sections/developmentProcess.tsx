@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 
 const DevelopmentProcess = () => {
   const t = useTranslations("developmentProcess");
+  const tPhases = useTranslations("developmentProcess.phases");
   const [activeCard, setActiveCard] = React.useState<number | null>(null);
 
   return (
@@ -26,6 +27,7 @@ const DevelopmentProcess = () => {
               onCardClick={() =>
                 setActiveCard(activeCard === phaseData.id ? null : phaseData.id)
               }
+              tPhases={tPhases}
             >
               <CanvasRevealEffect
                 animationSpeed={phaseData.animationSpeed}
@@ -49,11 +51,13 @@ const Card = ({
   children,
   isActive,
   onCardClick,
+  tPhases,
 }: {
   phaseData: DevelopmentPhase;
   children?: React.ReactNode;
   isActive: boolean;
   onCardClick: () => void;
+  tPhases: any;
 }) => {
   const [hovered, setHovered] = React.useState(false);
 
@@ -102,7 +106,7 @@ const Card = ({
               : "opacity-100"
           }`}
         >
-          <MagicButton text={phaseData.phase} />
+          <MagicButton text={tPhases(`${phaseData.id}.phase`)} />
         </div>
         <h2
           className={`dark:text-white text-xl text-center relative z-10 text-black mt-4 font-bold transition duration-200
@@ -113,7 +117,7 @@ const Card = ({
               : "opacity-0"
           }`}
         >
-          {phaseData.title}
+          {tPhases(`${phaseData.id}.title`)}
         </h2>
         <p
           className={`dark:text-white text-sm relative z-10 text-black mt-4 transition duration-200 text-center
@@ -124,7 +128,7 @@ const Card = ({
               : "opacity-0"
           }`}
         >
-          {phaseData.description}
+          {tPhases(`${phaseData.id}.description`)}
         </p>
       </div>
     </div>

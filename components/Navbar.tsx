@@ -4,6 +4,7 @@ import { PillNav } from "@/components";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { defaultLocale } from "@/i18n";
 
 const Navbar = () => {
   const { theme } = useTheme();
@@ -44,11 +45,19 @@ const Navbar = () => {
 
   const isDark = mounted ? theme === "dark" : false;
 
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => {
+    if (locale === defaultLocale) {
+      return path;
+    }
+    return `/${locale}${path}`;
+  };
+
   const navItems = [
-    { id: "home", label: t("home"), href: `/${locale}` },
-    { id: "about", label: t("about"), href: `/${locale}#about` },
-    { id: "projects", label: t("projects"), href: `/${locale}/projects` },
-    { id: "contact", label: t("contact"), href: `/${locale}/contact` },
+    { id: "home", label: t("home"), href: getLocalePath("/") },
+    { id: "about", label: t("about"), href: getLocalePath("/#about") },
+    { id: "projects", label: t("projects"), href: getLocalePath("/projects") },
+    { id: "contact", label: t("contact"), href: getLocalePath("/contact") },
   ];
 
   return (
@@ -61,7 +70,7 @@ const Navbar = () => {
     >
       <PillNav
         items={navItems}
-        activeHref={`/${locale}`}
+        activeHref={getLocalePath("/")}
         className="custom-nav pt-4"
         ease="power2.easeOut"
         baseColor={isDark ? "#ffffff" : "#000000"}
