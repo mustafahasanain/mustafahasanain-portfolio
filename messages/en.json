@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "CODE. CREATE. INNOVATE.",
+    "title": "Creating Scalable Web Apps and Custom Software Solutions.",
+    "cta": "See my latest projects"
+  },
+  "about": {
+    "title": "About Me",
+    "badge": "SOFTWARE ENGINEER",
+    "greeting": "Hi, I'm Mustafa",
+    "description1": "I'm a passionate software engineer with over 5 years of experience building web applications and custom software solutions. I specialize in creating scalable, performant applications that solve real-world problems.",
+    "description2": "My journey in software development has taught me that great code isn't just about functionality—it's about maintainability, scalability, and user experience. I believe in writing clean, well-documented code that other developers can understand and build upon.",
+    "description3": "When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community. I'm always eager to take on new challenges and collaborate on innovative projects.",
+    "features": {
+      "cleanCode": "Clean Code Advocate",
+      "performance": "Performance Focused",
+      "userCentric": "User-Centric Design"
+    },
+    "stats": {
+      "experience": {
+        "value": "5+",
+        "label": "Years of experience building amazing products"
+      },
+      "projects": {
+        "value": "20+",
+        "label": "Projects delivered from concept to production"
+      },
+      "technologies": {
+        "value": "15+",
+        "label": "Technologies mastered and actively using"
+      },
+      "passion": {
+        "value": "100%",
+        "label": "Passion dedicated to quality & excellence"
+      }
+    },
+    "mission": {
+      "title": "What Drives Me",
+      "description": "I'm driven by the desire to create technology that makes a difference. Every line of code I write is an opportunity to solve problems, improve lives, and push the boundaries of what's possible."
+    },
+    "cv": {
+      "view": "View CV",
+      "download": "Download"
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "description": "Technologies and tools I use to build modern applications"
+  },
+  "latestProjects": {
+    "title": "Latest Projects",
+    "description": "Explore my recent work showcasing modern web applications and innovative solutions",
+    "cta": "More Projects"
+  },
+  "workExperience": {
+    "title": "Work Experience"
+  },
+  "developmentProcess": {
+    "title": "Development Process"
+  },
+  "projects": {
+    "pageTitle": "All Projects",
+    "pageDescription": "A comprehensive collection of my work including web applications, mobile apps, and innovative digital solutions",
+    "card": {
+      "viewCode": "View Code",
+      "liveDemo": "Live Demo →",
+      "modal": {
+        "title": "Project Not Live",
+        "message": "This project is not currently live. Would you like to view the project code instead?",
+        "no": "No",
+        "yes": "Yes"
+      }
+    }
+  },
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page"
+  },
+  "contact": {
+    "pageTitle": "Contact Me",
+    "heading": "Get in touch",
+    "chatToMe": {
+      "title": "Chat to me",
+      "description": "I'm here to help and answer any question you might have. I look forward to hearing from you!"
+    },
+    "callMe": {
+      "title": "Call me",
+      "hours": "Sat-Thu from 8am to 5pm."
+    },
+    "socialMedia": "Social media",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Acme Inc.",
+      "email": "Email",
+      "emailPlaceholder": "john@example.com",
+      "phoneNumber": "Phone Number",
+      "phoneNumberPlaceholder": "+1 (555) 000-0000",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "consent": "I agree to be contacted regarding my message.",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message sent successfully!",
+        "description": "Thank you for reaching out. I'll get back to you soon."
+      },
+      "error": {
+        "title": "Failed to send message",
+        "description": "Please try again or contact me directly via email."
+      }
+    },
+    "validation": {
+      "fullName": {
+        "required": "Full name is required",
+        "min": "Full name must be at least 2 characters"
+      },
+      "email": {
+        "required": "Email is required",
+        "invalid": "Invalid email address"
+      },
+      "phoneNumber": {
+        "required": "Phone number is required",
+        "invalid": "Invalid phone number"
+      },
+      "message": {
+        "required": "Message is required",
+        "min": "Message must be at least 10 characters"
+      },
+      "consent": {
+        "required": "You must agree to be contacted"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions"
+  },
+  "footer": {
+    "copyright": "© {year} Mustafa Hasanain.",
+    "backToTop": "BACK TO TOP",
+    "cta": "HAVE A PROJECT IN MIND?",
+    "letsTalk": "LET'S TALK",
+    "social": {
+      "email": "EMAIL",
+      "whatsapp": "WHATSAPP",
+      "telegram": "TELEGRAM"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Mustafa Hasanain - Software Engineer & Full Stack Developer",
+      "description": "Experienced software engineer specializing in modern web applications, scalable solutions, and custom software development. Explore my portfolio of innovative projects.",
+      "keywords": "software engineer, full stack developer, web development, React, Next.js, TypeScript, portfolio"
+    },
+    "projects": {
+      "title": "Projects - Mustafa Hasanain",
+      "description": "Explore my portfolio of web applications, mobile apps, and innovative digital solutions built with modern technologies."
+    },
+    "contact": {
+      "title": "Contact - Mustafa Hasanain",
+      "description": "Get in touch to discuss your project, ask questions, or explore collaboration opportunities."
+    }
+  }
+}

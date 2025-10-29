@@ -1,6 +1,7 @@
 // providers
 export { default as ThemeToggle } from "./theme-toggle";
 export { ThemeProvider } from "./providers/theme-provider";
+export { LanguageSwitcher } from "./language-switcher";
 
 // components
 export { default as Navbar } from "./Navbar";

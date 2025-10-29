@@ -1,11 +1,16 @@
+"use client";
+
 import { Button } from "@/components";
 import { workExperience } from "@/data/experience";
+import { useTranslations } from "next-intl";
 
 const WorkExperience = () => {
+  const t = useTranslations("workExperience");
+
   return (
     <section className="w-full py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="heading mb-12">Work Experience</h1>
+        <h1 className="heading mb-12">{t("title")}</h1>
         <div className="w-full  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
           {workExperience.map((card) => (
             <Button

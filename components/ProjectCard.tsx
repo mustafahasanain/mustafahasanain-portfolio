@@ -4,8 +4,10 @@ import { CardBody, CardContainer, CardItem } from "@/components";
 import { ProjectCardProps } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const t = useTranslations("projects.card");
   const [showModal, setShowModal] = useState(false);
 
   const handleLiveDemoClick = (e: React.MouseEvent) => {
@@ -74,7 +76,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               target="_blank"
               className="px-3 sm:px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:underline"
             >
-              View Code
+              {t("viewCode")}
             </CardItem>
             <CardItem
               translateZ={20}
@@ -84,7 +86,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               onClick={handleLiveDemoClick}
               className="px-3 sm:px-4 py-2 rounded-lg bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
             >
-              Live Demo →
+              {t("liveDemo")}
             </CardItem>
           </div>
         </CardBody>
@@ -101,23 +103,23 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="text-xl font-bold text-neutral-800 dark:text-white mb-3">
-              Project Not Live
+              {t("modal.title")}
             </h3>
             <p className="text-neutral-600 dark:text-neutral-300 mb-6">
-              This project is not currently live. Would you like to view the project code instead?
+              {t("modal.message")}
             </p>
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setShowModal(false)}
                 className="px-4 py-2 rounded-lg border border-black/10 dark:border-white/20 text-neutral-600 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
               >
-                No
+                {t("modal.no")}
               </button>
               <button
                 onClick={handleViewCode}
                 className="px-4 py-2 rounded-lg bg-black dark:bg-white text-white dark:text-black font-bold hover:opacity-90 transition-opacity"
               >
-                Yes
+                {t("modal.yes")}
               </button>
             </div>
           </div>

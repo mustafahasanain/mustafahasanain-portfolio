@@ -1,12 +1,14 @@
 "use client";
 
 import { PillNav } from "@/components";
-import { navItems } from "@/data/menu";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 const Navbar = () => {
   const { theme } = useTheme();
+  const t = useTranslations("nav");
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -42,6 +44,13 @@ const Navbar = () => {
 
   const isDark = mounted ? theme === "dark" : false;
 
+  const navItems = [
+    { id: "home", label: t("home"), href: `/${locale}` },
+    { id: "about", label: t("about"), href: `/${locale}#about` },
+    { id: "projects", label: t("projects"), href: `/${locale}/projects` },
+    { id: "contact", label: t("contact"), href: `/${locale}/contact` },
+  ];
+
   return (
     <div
       className="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
@@ -52,7 +61,7 @@ const Navbar = () => {
     >
       <PillNav
         items={navItems}
-        activeHref="/"
+        activeHref={`/${locale}`}
         className="custom-nav pt-4"
         ease="power2.easeOut"
         baseColor={isDark ? "#ffffff" : "#000000"}

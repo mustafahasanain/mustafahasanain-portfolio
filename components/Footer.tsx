@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   ArrowUp,
   Mail,
@@ -16,6 +17,7 @@ import Link from "next/link";
 
 const Footer = () => {
   const { theme } = useTheme();
+  const t = useTranslations("footer");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -34,13 +36,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "EMAIL", url: "mailto:contact@mustafahasanain.com", icon: Mail },
+    { name: t("social.email"), url: "mailto:contact@mustafahasanain.com", icon: Mail },
     {
-      name: "WHATSAPP",
+      name: t("social.whatsapp"),
       url: "https://wa.me/9647904188727",
       icon: MessageCircle,
     },
-    { name: "TELEGRAM", url: "https://t.me/mustafahasanain", icon: Send },
+    { name: t("social.telegram"), url: "https://t.me/mustafahasanain", icon: Send },
   ];
 
   const socialMediaLinks = [
@@ -81,7 +83,7 @@ const Footer = () => {
           <div
             className={`text-sm ${isDark ? "text-white/60" : "text-black/60"}`}
           >
-            © {currentYear} Mustafa Hasanain.
+            {t("copyright", { year: currentYear })}
           </div>
 
           <button
@@ -93,7 +95,7 @@ const Footer = () => {
             }`}
             aria-label="Back to top"
           >
-            <span>BACK TO TOP</span>
+            <span>{t("backToTop")}</span>
             <div
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all group-hover:scale-110 ${
                 isDark
@@ -112,7 +114,7 @@ const Footer = () => {
               isDark ? "text-white/60" : "text-black/60"
             }`}
           >
-            HAVE A PROJECT IN MIND?
+            {t("cta")}
           </h2>
 
           <Link
@@ -123,7 +125,7 @@ const Footer = () => {
                 : "text-black/20 hover:text-black"
             }`}
           >
-            LET'S TALK
+            {t("letsTalk")}
           </Link>
 
           <div className="flex items-center justify-between w-full flex-wrap gap-4">

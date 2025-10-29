@@ -5,15 +5,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { CanvasRevealEffect, MagicButton } from "@/components";
 import { developmentPhases } from "@/data/development-process";
 import { DevelopmentPhase } from "@/types";
+import { useTranslations } from "next-intl";
 
 const DevelopmentProcess = () => {
+  const t = useTranslations("developmentProcess");
   const [activeCard, setActiveCard] = React.useState<number | null>(null);
 
   return (
     <section className="py-10">
       <div className="container mx-auto px-4 mt-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          Development Process
+          {t("title")}
         </h2>
         <div className=" flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
           {developmentPhases.map((phaseData) => (
