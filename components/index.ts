@@ -28,6 +28,7 @@ export {
   AccordionContent,
 } from "./ui/Accordion";
 export { default as TechStackCards } from "./ui/TechStackCards";
+export { default as PdfModal } from "./ui/PdfModal";
 
 // form components
 export { default as Checkbox } from "./ui/form/Checkbox";
@@ -37,6 +38,7 @@ export { default as Textarea } from "./ui/form/Textarea";
 
 // sections
 export { default as Hero } from "./sections/hero";
+export { default as About } from "./sections/About";
 export { default as TechStack } from "./sections/techStack";
 export { default as LatestProjects } from "./sections/latestProjects";
 export { default as WorkExperience } from "./sections/workExperience";
