@@ -13,7 +13,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-jost)", "var(--font-cairo)", "sans-serif"],
+        jost: ["var(--font-jost)", "sans-serif"],
         cairo: ["var(--font-cairo)", "sans-serif"],
       },
       colors: {

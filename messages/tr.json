@@ -7,7 +7,13 @@
   },
   "hero": {
     "tagline": "KOD. YARAT. YENİLİK.",
-    "title": "Ölçeklenebilir Web Uygulamaları ve Özel Yazılım Çözümleri Oluşturma.",
+    "title": {
+      "part1": "Ölçeklenebilir ",
+      "part2Colored": "Web Uygulamaları",
+      "part3": " ve Özel ",
+      "part4Colored": "Yazılım Çözümleri",
+      "part5": " Oluşturma."
+    },
     "cta": "En son projelerimi görün"
   },
   "about": {
@@ -233,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Mustafa Hasanain - Yazılım Mühendisi & Full Stack Geliştirici",
+      "title": "Mustafa Hasanain | Portföy",
       "description": "Modern web uygulamaları, ölçeklenebilir çözümler ve özel yazılım geliştirme konusunda uzmanlaşmış deneyimli yazılım mühendisi. Yenilikçi projelerden oluşan portföyümü keşfedin.",
       "keywords": "yazılım mühendisi, full stack geliştirici, web geliştirme, React, Next.js, TypeScript, portföy"
     },

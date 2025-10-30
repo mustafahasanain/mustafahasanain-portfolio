@@ -29,11 +29,41 @@ const BlurTitle = () => {
     <div className="space-y-2 justify-center w-full">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white text-center">
         <BlurText
-          text={t("title")}
+          text={t("title.part1")}
+          delay={150}
+          animateBy="words"
+          direction="bottom"
+          className="inline"
+        />
+        <BlurText
+          text={t("title.part2Colored")}
+          delay={150}
+          animateBy="words"
+          direction="bottom"
+          className="inline"
+          style={{ color: accentColor }}
+        />
+        <BlurText
+          text={t("title.part3")}
+          delay={150}
+          animateBy="words"
+          direction="bottom"
+          className="inline"
+        />
+        <BlurText
+          text={t("title.part4Colored")}
           delay={150}
           animateBy="words"
           direction="bottom"
           onAnimationComplete={handleAnimationComplete}
+          className="inline"
+          style={{ color: accentColor }}
+        />
+        <BlurText
+          text={t("title.part5")}
+          delay={150}
+          animateBy="words"
+          direction="bottom"
           className="inline"
         />
       </h1>

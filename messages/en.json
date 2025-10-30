@@ -7,7 +7,13 @@
   },
   "hero": {
     "tagline": "CODE. CREATE. INNOVATE.",
-    "title": "Creating Scalable Web Apps and Custom Software Solutions.",
+    "title": {
+      "part1": "Creating Scalable ",
+      "part2Colored": "Web Apps",
+      "part3": " and Custom ",
+      "part4Colored": "Software Solutions",
+      "part5": "."
+    },
     "cta": "See my latest projects"
   },
   "about": {
@@ -233,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Mustafa Hasanain - Software Engineer & Full Stack Developer",
+      "title": "Mustafa Hasanain | Portfolio",
       "description": "Experienced software engineer specializing in modern web applications, scalable solutions, and custom software development. Explore my portfolio of innovative projects.",
       "keywords": "software engineer, full stack developer, web development, React, Next.js, TypeScript, portfolio"
     },

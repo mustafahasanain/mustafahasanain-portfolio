@@ -82,10 +82,13 @@ export default async function LocaleLayout(props: Props) {
 
   const messages = await getMessages();
   const direction = locale === "ar" ? "rtl" : "ltr";
+  const fontFamily = locale === "ar"
+    ? "var(--font-cairo), sans-serif"
+    : "var(--font-jost), sans-serif";
 
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
-      <body className={`${jost.variable} ${cairo.variable} font-sans antialiased`}>
+      <body className={`${jost.variable} ${cairo.variable} antialiased`} style={{ fontFamily }}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
