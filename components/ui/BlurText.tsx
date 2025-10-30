@@ -52,6 +52,7 @@ const BlurText: React.FC<BlurTextProps> = ({
 }) => {
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
+  const [isRTL, setIsRTL] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -69,24 +70,31 @@ const BlurText: React.FC<BlurTextProps> = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const dir = document.documentElement.getAttribute("dir");
+      setIsRTL(dir === "rtl");
+    }
+  }, []);
+
   const defaultFrom = useMemo(
     () =>
       direction === "top"
-        ? { filter: "blur(10px)", opacity: 0, y: -50 }
-        : { filter: "blur(10px)", opacity: 0, y: 50 },
-    [direction]
+        ? { filter: isRTL ? "blur(0px)" : "blur(10px)", opacity: 0, y: isRTL ? -20 : -50 }
+        : { filter: isRTL ? "blur(0px)" : "blur(10px)", opacity: 0, y: isRTL ? 20 : 50 },
+    [direction, isRTL]
   );
 
   const defaultTo = useMemo(
     () => [
       {
-        filter: "blur(5px)",
-        opacity: 0.5,
-        y: direction === "top" ? 5 : -5,
+        filter: isRTL ? "blur(0px)" : "blur(5px)",
+        opacity: isRTL ? 0.7 : 0.5,
+        y: direction === "top" ? (isRTL ? 0 : 5) : (isRTL ? 0 : -5),
       },
       { filter: "blur(0px)", opacity: 1, y: 0 },
     ],
-    [direction]
+    [direction, isRTL]
   );
 
   const fromSnapshot = animationFrom ?? defaultFrom;
@@ -121,7 +129,11 @@ const BlurText: React.FC<BlurTextProps> = ({
             }
             style={{
               display: "inline-block",
-              willChange: "transform, filter, opacity",
+              willChange: isRTL ? "transform, opacity" : "transform, filter, opacity",
+              ...(isRTL && {
+                textRendering: "optimizeLegibility",
+                WebkitFontSmoothing: "antialiased",
+              }),
             }}
           >
             {segment === " " ? "\u00A0" : segment}

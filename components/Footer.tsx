@@ -46,13 +46,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: t("social.email"), url: "mailto:contact@mustafahasanain.com", icon: Mail },
+    {
+      name: t("social.email"),
+      url: "mailto:contact@mustafahasanain.com",
+      icon: Mail,
+    },
     {
       name: t("social.whatsapp"),
       url: "https://wa.me/9647904188727",
       icon: MessageCircle,
     },
-    { name: t("social.telegram"), url: "https://t.me/mustafahasanain", icon: Send },
+    {
+      name: t("social.telegram"),
+      url: "https://t.me/mustafahasanain",
+      icon: Send,
+    },
   ];
 
   const socialMediaLinks = [
@@ -131,14 +139,14 @@ const Footer = () => {
             href={getLocalePath("/contact")}
             className={`block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 ${
               isDark
-                ? "text-white/20 hover:text-white"
-                : "text-black/20 hover:text-black"
+                ? "text-[#f0f0f0] hover:text-[#cbacf9]"
+                : "text-[#0a0a0a] hover:text-[#AD7CF6]"
             }`}
           >
             {t("letsTalk")}
           </Link>
 
-          <div className="flex items-center justify-between w-full flex-wrap gap-4">
+          <div className="flex items-center justify-between w-full flex-wrap gap-4 mt-6">
             <div className="flex flex-wrap gap-4 justify-start sm:flex-nowrap sm:gap-4 [@media(max-width:640px)]:flex-nowrap [@media(max-width:640px)]:gap-2">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
