@@ -57,21 +57,12 @@ export function LanguageSwitcher() {
     const pathWithoutLocale =
       pathSegments.length > 0 ? "/" + pathSegments.join("/") : "/";
 
-    console.log("=== Language Switch Debug ===");
-    console.log("Current locale:", currentLocale);
-    console.log("New locale:", newLocale);
-    console.log("Full pathname:", fullPathname);
-    console.log("Path without locale:", pathWithoutLocale);
-
     // Construct the new URL - always use locale prefix initially
     const newPath = `/${newLocale}${pathWithoutLocale}`;
 
-    console.log("Navigating to:", newPath);
-    console.log("============================");
-
-    // Force a full page reload to ensure proper locale change
-    // The middleware will handle redirecting /en to / if needed
-    window.location.href = newPath;
+    // Use client-side navigation instead of full page reload
+    // This will change the language without re-rendering the entire page
+    router.push(newPath);
   };
 
   return (
