@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import {
   ArrowUp,
   Mail,
@@ -13,9 +14,12 @@ import {
   Instagram,
 } from "lucide-react";
 import Link from "next/link";
+import { defaultLocale } from "@/i18n";
 
 const Footer = () => {
   const { theme } = useTheme();
+  const t = useTranslations("footer");
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -31,16 +35,32 @@ const Footer = () => {
     });
   };
 
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => {
+    if (locale === defaultLocale) {
+      return path;
+    }
+    return `/${locale}${path}`;
+  };
+
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "EMAIL", url: "mailto:contact@mustafahasanain.com", icon: Mail },
     {
-      name: "WHATSAPP",
+      name: t("social.email"),
+      url: "mailto:contact@mustafahasanain.com",
+      icon: Mail,
+    },
+    {
+      name: t("social.whatsapp"),
       url: "https://wa.me/9647904188727",
       icon: MessageCircle,
     },
-    { name: "TELEGRAM", url: "https://t.me/mustafahasanain", icon: Send },
+    {
+      name: t("social.telegram"),
+      url: "https://t.me/mustafahasanain",
+      icon: Send,
+    },
   ];
 
   const socialMediaLinks = [
@@ -81,7 +101,7 @@ const Footer = () => {
           <div
             className={`text-sm ${isDark ? "text-white/60" : "text-black/60"}`}
           >
-            © {currentYear} Mustafa Hasanain.
+            {t("copyright", { year: currentYear })}
           </div>
 
           <button
@@ -93,7 +113,7 @@ const Footer = () => {
             }`}
             aria-label="Back to top"
           >
-            <span>BACK TO TOP</span>
+            <span>{t("backToTop")}</span>
             <div
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all group-hover:scale-110 ${
                 isDark
@@ -112,21 +132,21 @@ const Footer = () => {
               isDark ? "text-white/60" : "text-black/60"
             }`}
           >
-            HAVE A PROJECT IN MIND?
+            {t("cta")}
           </h2>
 
           <Link
-            href="/contact"
+            href={getLocalePath("/contact")}
             className={`block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 ${
               isDark
-                ? "text-white/20 hover:text-white"
-                : "text-black/20 hover:text-black"
+                ? "text-[#f0f0f0] hover:text-[#cbacf9]"
+                : "text-[#0a0a0a] hover:text-[#AD7CF6]"
             }`}
           >
-            LET'S TALK
+            {t("letsTalk")}
           </Link>
 
-          <div className="flex items-center justify-between w-full flex-wrap gap-4">
+          <div className="flex items-center justify-between w-full flex-wrap gap-4 mt-6">
             <div className="flex flex-wrap gap-4 justify-start sm:flex-nowrap sm:gap-4 [@media(max-width:640px)]:flex-nowrap [@media(max-width:640px)]:gap-2">
               {socialLinks.map((link) => {
                 const Icon = link.icon;

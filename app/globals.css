@@ -192,6 +192,24 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Optimize Arabic text rendering */
+  [dir="rtl"] {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  /* Specifically for Arabic text elements with animations/filters */
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] .blur-text {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
 }
 
 @layer utilities {

@@ -1,14 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import { techStack } from "@/data/skills";
 import { TechStackCards } from "@/components";
+import { useTranslations } from "next-intl";
 
 const TechStack = () => {
+  const t = useTranslations("techStack");
+
   return (
     <section className="w-full py-20">
       <div className="container mx-auto px-4">
-        <h2 className="mb-4 text-center text-4xl font-bold">Tech Stack</h2>
+        <h2 className="mb-4 text-center text-4xl font-bold">{t("title")}</h2>
         <p className="text-center text-neutral-500 dark:text-neutral-400 mb-12 max-w-2xl mx-auto">
-          Technologies and tools I use to build modern applications
+          {t("description")}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-6 lg:gap-8 place-items-center max-w-[1400px] mx-auto">
           {techStack.map((category) => (

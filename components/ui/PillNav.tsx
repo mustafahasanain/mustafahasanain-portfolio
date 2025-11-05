@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
-import { ThemeToggle } from "@/components";
+import { ThemeToggle, LanguageSwitcher } from "@/components";
 
 export type PillNavItem = {
   label: string;
@@ -487,7 +487,8 @@ const PillNav: React.FC<PillNavProps> = ({
         </nav>
 
         {showThemeToggle && (
-          <div className="hidden md:block absolute right-0 top-0 mt-4">
+          <div className="hidden md:flex absolute right-0 top-0 mt-4 gap-2 items-center">
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
         )}
@@ -569,7 +570,8 @@ const PillNav: React.FC<PillNavProps> = ({
             );
           })}
           {showThemeToggle && (
-            <li className="flex justify-center pt-2">
+            <li className="flex justify-center items-center gap-2 pt-2">
+              <LanguageSwitcher />
               <ThemeToggle />
             </li>
           )}

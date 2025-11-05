@@ -5,15 +5,18 @@ import { AnimatePresence, motion } from "motion/react";
 import { CanvasRevealEffect, MagicButton } from "@/components";
 import { developmentPhases } from "@/data/development-process";
 import { DevelopmentPhase } from "@/types";
+import { useTranslations } from "next-intl";
 
 const DevelopmentProcess = () => {
+  const t = useTranslations("developmentProcess");
+  const tPhases = useTranslations("developmentProcess.phases");
   const [activeCard, setActiveCard] = React.useState<number | null>(null);
 
   return (
     <section className="py-10">
       <div className="container mx-auto px-4 mt-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          Development Process
+          {t("title")}
         </h2>
         <div className=" flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
           {developmentPhases.map((phaseData) => (
@@ -24,6 +27,7 @@ const DevelopmentProcess = () => {
               onCardClick={() =>
                 setActiveCard(activeCard === phaseData.id ? null : phaseData.id)
               }
+              tPhases={tPhases}
             >
               <CanvasRevealEffect
                 animationSpeed={phaseData.animationSpeed}
@@ -47,11 +51,13 @@ const Card = ({
   children,
   isActive,
   onCardClick,
+  tPhases,
 }: {
   phaseData: DevelopmentPhase;
   children?: React.ReactNode;
   isActive: boolean;
   onCardClick: () => void;
+  tPhases: any;
 }) => {
   const [hovered, setHovered] = React.useState(false);
 
@@ -100,7 +106,7 @@ const Card = ({
               : "opacity-100"
           }`}
         >
-          <MagicButton text={phaseData.phase} />
+          <MagicButton text={tPhases(`${phaseData.id}.phase`)} />
         </div>
         <h2
           className={`dark:text-white text-xl text-center relative z-10 text-black mt-4 font-bold transition duration-200
@@ -111,7 +117,7 @@ const Card = ({
               : "opacity-0"
           }`}
         >
-          {phaseData.title}
+          {tPhases(`${phaseData.id}.title`)}
         </h2>
         <p
           className={`dark:text-white text-sm relative z-10 text-black mt-4 transition duration-200 text-center
@@ -122,7 +128,7 @@ const Card = ({
               : "opacity-0"
           }`}
         >
-          {phaseData.description}
+          {tPhases(`${phaseData.id}.description`)}
         </p>
       </div>
     </div>

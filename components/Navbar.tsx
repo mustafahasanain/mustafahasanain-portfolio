@@ -1,12 +1,15 @@
 "use client";
 
 import { PillNav } from "@/components";
-import { navItems } from "@/data/menu";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { defaultLocale } from "@/i18n";
 
 const Navbar = () => {
   const { theme } = useTheme();
+  const t = useTranslations("nav");
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -42,6 +45,21 @@ const Navbar = () => {
 
   const isDark = mounted ? theme === "dark" : false;
 
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => {
+    if (locale === defaultLocale) {
+      return path;
+    }
+    return `/${locale}${path}`;
+  };
+
+  const navItems = [
+    { id: "home", label: t("home"), href: getLocalePath("/") },
+    { id: "about", label: t("about"), href: getLocalePath("/#about") },
+    { id: "projects", label: t("projects"), href: getLocalePath("/projects") },
+    { id: "contact", label: t("contact"), href: getLocalePath("/contact") },
+  ];
+
   return (
     <div
       className="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
@@ -52,7 +70,7 @@ const Navbar = () => {
     >
       <PillNav
         items={navItems}
-        activeHref="/"
+        activeHref={getLocalePath("/")}
         className="custom-nav pt-4"
         ease="power2.easeOut"
         baseColor={isDark ? "#ffffff" : "#000000"}
