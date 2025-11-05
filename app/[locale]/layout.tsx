@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Jost, Cairo } from "next/font/google";
-import { Footer, Navbar, ThemeProvider } from "@/components";
+import { Footer, Navbar, ThemeProvider, LocaleRedirect } from "@/components";
 import { locales, defaultLocale } from "@/i18n";
 import "../globals.css";
 
@@ -96,6 +96,7 @@ export default async function LocaleLayout(props: Props) {
             enableSystem
             disableTransitionOnChange
           >
+            <LocaleRedirect />
             <Navbar />
             {children}
             <Footer />
