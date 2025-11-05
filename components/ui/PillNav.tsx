@@ -293,14 +293,27 @@ const PillNav: React.FC<PillNavProps> = ({
       const path = href.substring(0, hashIndex);
       const hash = href.substring(hashIndex + 1);
 
-      // Check if it's the current page or root page
-      if (path === '' || path === '/' || window.location.pathname === path) {
+      // Normalize paths for comparison (remove trailing slashes and handle locale prefixes)
+      const currentPath = window.location.pathname.replace(/\/$/, '');
+      const targetPath = path.replace(/\/$/, '');
+
+      // Check if we're on the target page (could be root or same page)
+      const isOnTargetPage =
+        (targetPath === '' || targetPath === '/') && (currentPath === '' || currentPath === '/' || currentPath.match(/^\/[a-z]{2}$/)) ||
+        currentPath === targetPath ||
+        currentPath === targetPath.replace(/^\/[a-z]{2}/, '') ||
+        currentPath.replace(/^\/[a-z]{2}/, '') === targetPath;
+
+      if (isOnTargetPage) {
+        // We're on the right page, just scroll to the element
         e.preventDefault();
         const element = document.getElementById(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+      // If not on the target page, let the default navigation happen
+      // The browser will navigate to the page and scroll to the hash
     }
   };
 
