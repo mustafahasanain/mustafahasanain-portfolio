@@ -65,6 +65,8 @@ export function LanguageSwitcher() {
     router.push(newPath);
   };
 
+  const CurrentFlag = localeFlags[currentLocale];
+
   return (
     <div className="relative inline-block" ref={dropdownRef}>
       <button
@@ -73,7 +75,7 @@ export function LanguageSwitcher() {
         aria-label="Select language"
         aria-expanded={isOpen}
       >
-        <span className="text-lg">{localeFlags[currentLocale]}</span>
+        <CurrentFlag className="w-5 h-5" />
         <span className="text-sm font-medium hidden sm:inline">
           {localeNames[currentLocale]}
         </span>
@@ -96,31 +98,34 @@ export function LanguageSwitcher() {
 
       {isOpen && (
         <div className="absolute top-full mt-2 right-0 min-w-40 bg-popover border border-border rounded-lg shadow-lg overflow-hidden z-50">
-          {Object.entries(localeNames).map(([locale, name]) => (
-            <button
-              key={locale}
-              onClick={() => handleLocaleChange(locale as Locale)}
-              className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-accent transition-colors ${
-                currentLocale === locale ? "bg-accent/50 font-semibold" : ""
-              }`}
-            >
-              <span className="text-lg">{localeFlags[locale as Locale]}</span>
-              <span className="text-sm">{name}</span>
-              {currentLocale === locale && (
-                <svg
-                  className="w-4 h-4 ms-auto"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-            </button>
-          ))}
+          {Object.entries(localeNames).map(([locale, name]) => {
+            const FlagComponent = localeFlags[locale as Locale];
+            return (
+              <button
+                key={locale}
+                onClick={() => handleLocaleChange(locale as Locale)}
+                className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-accent transition-colors ${
+                  currentLocale === locale ? "bg-accent/50 font-semibold" : ""
+                }`}
+              >
+                <FlagComponent className="w-5 h-5" />
+                <span className="text-sm">{name}</span>
+                {currentLocale === locale && (
+                  <svg
+                    className="w-4 h-4 ms-auto"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </button>
+            );
+          })}
         </div>
       )}
     </div>

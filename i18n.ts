@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
+import { USFlag, IQFlag, TRFlag } from "@/components/flags";
 
 // Can be imported from a shared config
 export const locales = ["en", "ar", "tr"] as const;
@@ -13,10 +14,10 @@ export const localeNames: Record<Locale, string> = {
   tr: "Türkçe",
 };
 
-export const localeFlags: Record<Locale, string> = {
-  en: "🇺🇸",
-  ar: "🇸🇦",
-  tr: "🇹🇷",
+export const localeFlags: Record<Locale, React.ComponentType<{ className?: string }>> = {
+  en: USFlag,
+  ar: IQFlag,
+  tr: TRFlag,
 };
 
 export default getRequestConfig(async ({ requestLocale }) => {
