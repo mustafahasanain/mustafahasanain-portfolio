@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { FiX, FiDownload, FiMaximize2 } from "react-icons/fi";
+import { X, Download, Maximize2 } from "lucide-react";
 
 interface PdfModalProps {
   isOpen: boolean;
@@ -62,7 +62,7 @@ const PdfModal = ({ isOpen, onClose, pdfUrl }: PdfModalProps) => {
               className="p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-lg transition-colors"
               title="Download CV"
             >
-              <FiDownload className="text-xl text-neutral-700 dark:text-neutral-300" />
+              <Download className="text-xl text-neutral-700 dark:text-neutral-300" />
             </a>
             <a
               href={pdfUrl}
@@ -71,14 +71,14 @@ const PdfModal = ({ isOpen, onClose, pdfUrl }: PdfModalProps) => {
               className="p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-lg transition-colors"
               title="Open in new tab"
             >
-              <FiMaximize2 className="text-xl text-neutral-700 dark:text-neutral-300" />
+              <Maximize2 className="text-xl text-neutral-700 dark:text-neutral-300" />
             </a>
             <button
               onClick={onClose}
               className="p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-lg transition-colors"
               title="Close"
             >
-              <FiX className="text-2xl text-neutral-700 dark:text-neutral-300" />
+              <X className="text-2xl text-neutral-700 dark:text-neutral-300" />
             </button>
           </div>
         </div>

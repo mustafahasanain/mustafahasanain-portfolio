@@ -3,14 +3,7 @@
 import { useState } from "react";
 import { PdfModal } from "@/components";
 import { useTranslations } from "next-intl";
-import {
-  FiCode,
-  FiHeart,
-  FiZap,
-  FiTarget,
-  FiDownload,
-  FiEye,
-} from "react-icons/fi";
+import { Code, Heart, Zap, Download, Eye } from "lucide-react";
 
 const About = () => {
   const t = useTranslations("about");
@@ -31,7 +24,7 @@ const About = () => {
               <div className="h-full bg-[#ad7cf6] dark:bg-[#cbacf9] rounded-3xl p-1 hover:scale-[1.02] transition-all duration-500">
                 <div className="h-full bg-white dark:bg-[#0a0a0a] rounded-3xl p-8 md:p-10 flex flex-col justify-between">
                   <div>
-                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full mb-6">
+                    <div className="inline-block px-4 py-2 bg-linear-to-r from-purple-500/10 to-blue-500/10 rounded-full mb-6">
                       <span className="text-sm font-semibold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent">
                         {t("badge")}
                       </span>
@@ -48,7 +41,7 @@ const About = () => {
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
-                          <FiCode className="text-purple-600 text-lg" />
+                          <Code className="text-purple-600 text-lg" />
                         </div>
                         <span className="text-neutral-700 dark:text-neutral-300">
                           {t("features.cleanCode")}
@@ -56,7 +49,7 @@ const About = () => {
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
-                          <FiZap className="text-blue-600 text-lg" />
+                          <Zap className="text-blue-600 text-lg" />
                         </div>
                         <span className="text-neutral-700 dark:text-neutral-300">
                           {t("features.performance")}
@@ -64,7 +57,7 @@ const About = () => {
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center">
-                          <FiHeart className="text-cyan-600 text-lg" />
+                          <Heart className="text-cyan-600 text-lg" />
                         </div>
                         <span className="text-neutral-700 dark:text-neutral-300">
                           {t("features.userCentric")}
@@ -78,7 +71,7 @@ const About = () => {
                       onClick={() => setIsModalOpen(true)}
                       className="flex-1 px-6 py-3 bg-[#ad7cf6] dark:bg-[#cbacf9] text-white dark:text-[#0a0a0a] rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
                     >
-                      <FiEye className="text-xl" />
+                      <Eye className="text-xl" />
                       {t("cv.view")}
                     </button>
                     <a
@@ -86,7 +79,7 @@ const About = () => {
                       download="Mustafa_Hasanain_CV.pdf"
                       className="flex-1 px-6 py-3 bg-white dark:bg-neutral-900 text-purple-600 dark:text-purple-400 border-2 border-[#ad7cf6] dark:border-[#cbacf9] rounded-xl hover:bg-purple-50 dark:hover:bg-neutral-800 transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
                     >
-                      <FiDownload className="text-xl" />
+                      <Download className="text-xl" />
                       {t("cv.download")}
                     </a>
                   </div>
@@ -98,7 +91,7 @@ const About = () => {
             <div className="lg:col-span-7 grid grid-cols-2 gap-4 md:gap-6">
               {/* Experience Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-purple-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full  bg-linear-to-r from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-purple-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.experience.value")}
                   </div>
@@ -110,7 +103,7 @@ const About = () => {
 
               {/* Projects Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-blue-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full  bg-linear-to-r from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-blue-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.projects.value")}
                   </div>
@@ -122,7 +115,7 @@ const About = () => {
 
               {/* Tech Stack Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-cyan-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full  bg-linear-to-r from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-cyan-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.technologies.value")}
                   </div>
@@ -134,7 +127,7 @@ const About = () => {
 
               {/* Passion Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-pink-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full  bg-linear-to-r from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-pink-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.passion.value")}
                   </div>
