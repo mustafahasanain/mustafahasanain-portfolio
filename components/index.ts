@@ -3,6 +3,7 @@ export { default as ThemeToggle } from "./theme-toggle";
 export { ThemeProvider } from "./providers/theme-provider";
 export { LanguageSwitcher } from "./language-switcher";
 export { default as LocaleRedirect } from "./LocaleRedirect";
+export { StructuredData } from "./StructuredData";
 
 // components
 export { default as Navbar } from "./Navbar";

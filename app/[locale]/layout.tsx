@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { Jost, Cairo } from "next/font/google";
-import { Footer, Navbar, ThemeProvider, LocaleRedirect } from "@/components";
+import {
+  Footer,
+  Navbar,
+  ThemeProvider,
+  LocaleRedirect,
+  StructuredData,
+} from "@/components";
 import { locales, defaultLocale } from "@/i18n";
 import "../globals.css";
 
@@ -29,15 +39,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata(props: Omit<Props, "children">): Promise<Metadata> {
+export async function generateMetadata(
+  props: Omit<Props, "children">
+): Promise<Metadata> {
   const params = await props.params;
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: "metadata.home" });
 
   // Create locale-aware URL (no prefix for default locale)
-  const siteUrl = locale === defaultLocale
-    ? "https://mustafahasanain.com"
-    : `https://mustafahasanain.com/${locale}`;
+  const siteUrl =
+    locale === defaultLocale
+      ? "https://mustafahasanain.com"
+      : `https://mustafahasanain.com/${locale}`;
 
   return {
     title: t("title"),
@@ -74,7 +87,8 @@ export async function generateMetadata(props: Omit<Props, "children">): Promise<
 
 export default async function LocaleLayout(props: Props) {
   const params = await props.params;
-  const { locale } = params;
+  const { locale: localeParam } = params;
+  const locale = localeParam as (typeof locales)[number];
   const { children } = props;
 
   // Enable static rendering
@@ -82,13 +96,20 @@ export default async function LocaleLayout(props: Props) {
 
   const messages = await getMessages();
   const direction = locale === "ar" ? "rtl" : "ltr";
-  const fontFamily = locale === "ar"
-    ? "var(--font-cairo), sans-serif"
-    : "var(--font-jost), sans-serif";
+  const fontFamily =
+    locale === "ar"
+      ? "var(--font-cairo), sans-serif"
+      : "var(--font-jost), sans-serif";
 
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
-      <body className={`${jost.variable} ${cairo.variable} antialiased`} style={{ fontFamily }}>
+      <head>
+        <StructuredData locale={locale} />
+      </head>
+      <body
+        className={`${jost.variable} ${cairo.variable} antialiased`}
+        style={{ fontFamily }}
+      >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
