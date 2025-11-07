@@ -13,6 +13,7 @@ import {
   LocaleRedirect,
   StructuredData,
 } from "@/components";
+import Analytics from "@/components/Analytics";
 import { locales, defaultLocale } from "@/i18n";
 import "../globals.css";
 
@@ -105,6 +106,7 @@ export default async function LocaleLayout(props: Props) {
     <html lang={locale} dir={direction} suppressHydrationWarning>
       <head>
         <StructuredData locale={locale} />
+        <Analytics />
       </head>
       <body
         className={`${jost.variable} ${cairo.variable} antialiased`}

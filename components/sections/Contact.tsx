@@ -69,6 +69,14 @@ export default function Contact() {
       const result = await response.json();
 
       if (result.success) {
+        // Track successful form submission with Umami Analytics
+        if (typeof window !== "undefined" && window.umami) {
+          window.umami.track("contact-form-submit", {
+            company: data.companyName || "none",
+            hasPhone: !!data.phone,
+          });
+        }
+
         toast.success(t("form.success.title"), {
           description: t("form.success.description"),
         });
