@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { locales, defaultLocale } from '@/i18n';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://mustafahasanain.com';
 
