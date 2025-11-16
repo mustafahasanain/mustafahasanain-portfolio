@@ -18,9 +18,9 @@ export const socialLinks: SocialLink[] = [
   {
     id: "x",
     name: "X",
-    url: "https://x.com/mustafahasanain",
+    url: "https://x.com/MustafaHDev",
     icon: "x",
-    username: "@m7asanain",
+    username: "@MustafaHDev",
   },
   {
     id: "facebook",
@@ -32,9 +32,9 @@ export const socialLinks: SocialLink[] = [
   {
     id: "instagram",
     name: "Instagram",
-    url: "https://www.instagram.com/mustafahasanain1/",
+    url: "https://www.instagram.com/mustafahasanain.dev/",
     icon: "x",
-    username: "@mustafahasanain1",
+    username: "@mustafahasanain.dev",
   },
   {
     id: "whatsapp",

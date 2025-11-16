@@ -32,7 +32,7 @@ const ProjectsPage = () => {
             {t("pageDescription")}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 py-10 auto-rows-fr">
             {currentProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

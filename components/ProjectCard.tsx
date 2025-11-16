@@ -25,8 +25,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
   return (
     <>
-      <CardContainer className="inter-var">
-        <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/10 dark:bg-black dark:border-white/20 border-black/10 w-full h-auto rounded-xl p-4 sm:p-5 border">
+      <CardContainer className="inter-var h-full">
+        <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/10 dark:bg-black dark:border-white/20 border-black/10 w-full h-full rounded-xl p-4 sm:p-5 border flex flex-col">
           <CardItem translateZ="100" className="w-full">
             <Image
               src={project.image}
@@ -46,13 +46,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <CardItem
             as="p"
             translateZ="60"
-            className="text-neutral-500 text-xs sm:text-sm max-w-sm mt-2 dark:text-neutral-300 line-clamp-3"
+            className="text-neutral-500 text-xs sm:text-sm max-w-sm mt-2 dark:text-neutral-300 line-clamp-3 grow"
           >
             {tItems(`${project.id}.description`)}
           </CardItem>
 
           {/* Tech Stack Icons */}
-          <CardItem translateZ="50" className="flex flex-wrap gap-2 mt-3 sm:mt-4">
+          <CardItem
+            translateZ="50"
+            className="flex flex-wrap gap-2 mt-3 sm:mt-4 mb-2"
+          >
             {project.iconLists.map((icon, index) => (
               <div
                 key={index}
@@ -69,7 +72,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             ))}
           </CardItem>
 
-          <div className="flex flex-wrap gap-3 justify-between items-center mt-4 sm:mt-6">
+          <div className="flex flex-wrap gap-3 justify-between items-center mt-auto pt-4 sm:pt-6">
             <CardItem
               translateZ={20}
               as="a"
