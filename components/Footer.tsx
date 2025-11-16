@@ -17,7 +17,7 @@ import Link from "next/link";
 import { defaultLocale } from "@/i18n";
 
 const Footer = () => {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const t = useTranslations("footer");
   const locale = useLocale();
   const [mounted, setMounted] = useState(false);
@@ -26,7 +26,8 @@ const Footer = () => {
     setMounted(true);
   }, []);
 
-  const isDark = mounted ? theme === "dark" : false;
+  // Use resolvedTheme to get the actual theme being used (handles 'system' preference)
+  const isDark = resolvedTheme === "dark";
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -92,34 +93,24 @@ const Footer = () => {
 
   return (
     <footer
-      className={`w-full border-t transition-colors ${
-        isDark ? "border-white/10" : "border-black/10"
-      }`}
+      className="w-full border-t border-border transition-colors"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12">
         <div className="flex items-center justify-between w-full">
           <div
-            className={`text-sm ${isDark ? "text-white/60" : "text-black/60"}`}
+            className="text-sm transition-colors text-muted-foreground"
           >
             {t("copyright", { year: currentYear })}
           </div>
 
           <button
             onClick={scrollToTop}
-            className={`group flex items-center gap-3 text-sm font-medium tracking-wide transition-colors ${
-              isDark
-                ? "text-white/60 hover:text-white"
-                : "text-black/60 hover:text-black"
-            }`}
+            className="group flex items-center gap-3 text-sm font-medium tracking-wide transition-colors text-muted-foreground hover:text-foreground"
             aria-label="Back to top"
           >
             <span>{t("backToTop")}</span>
             <div
-              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all group-hover:scale-110 ${
-                isDark
-                  ? "border-white/20 bg-white/5 group-hover:bg-white group-hover:text-black"
-                  : "border-black/20 bg-black/5 group-hover:bg-black group-hover:text-white"
-              }`}
+              className="w-12 h-12 rounded-full border border-border bg-muted flex items-center justify-center transition-all group-hover:scale-110 group-hover:bg-foreground group-hover:text-background"
             >
               <ArrowUp className="w-5 h-5" />
             </div>
@@ -128,20 +119,14 @@ const Footer = () => {
 
         <div className="flex flex-col justify-center mt-20 mb-16 md:mb-24">
           <h2
-            className={`text-sm font-medium tracking-wider ${
-              isDark ? "text-white/60" : "text-black/60"
-            }`}
+            className="text-sm font-medium tracking-wider transition-colors text-muted-foreground"
           >
             {t("cta")}
           </h2>
 
           <Link
             href={getLocalePath("/contact")}
-            className={`block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 ${
-              isDark
-                ? "text-[#f0f0f0] hover:text-[#cbacf9]"
-                : "text-[#0a0a0a] hover:text-[#AD7CF6]"
-            }`}
+            className="block text-[70px] md:text-[120px] lg:text-[220px] font-bold leading-none tracking-tight mb-12 md:mb-16 transition-colors duration-300 text-foreground hover:text-primary"
           >
             {t("letsTalk")}
           </Link>
@@ -156,12 +141,7 @@ const Footer = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`px-8 py-3 rounded-full border text-sm font-medium tracking-wide transition-all hover:scale-105 sm:px-8 sm:py-3 sm:text-sm [@media(max-width:640px)]:px-4 [@media(max-width:640px)]:py-2 [@media(max-width:640px)]:text-xs flex items-center gap-2
-                    ${
-                      isDark
-                        ? "border-white/20 text-white hover:bg-white hover:text-black"
-                        : "border-black/20 text-black hover:bg-black hover:text-white"
-                    }`}
+                    className="px-8 py-3 rounded-full border border-border text-sm font-medium tracking-wide transition-all hover:scale-105 sm:px-8 sm:py-3 sm:text-sm [@media(max-width:640px)]:px-4 [@media(max-width:640px)]:py-2 [@media(max-width:640px)]:text-xs flex items-center gap-2 text-foreground hover:bg-foreground hover:text-background"
                   >
                     <Icon className="w-4 h-4" />
                     {link.name}
@@ -180,11 +160,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                        isDark
-                          ? "border-white/20 bg-white/5 hover:bg-white hover:text-black"
-                          : "border-black/20 bg-black/5 hover:bg-black hover:text-white"
-                      }`}
+                      className="w-10 h-10 rounded-full border border-border bg-muted flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-foreground hover:text-background"
                       aria-label={link.name}
                     >
                       <Icon className="w-5 h-5" />
