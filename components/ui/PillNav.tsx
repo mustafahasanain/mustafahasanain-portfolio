@@ -97,6 +97,18 @@ const PillNav: React.FC<PillNavProps> = ({
     };
   }, [isMobileMenuOpen, ease]);
 
+  // Reset hamburger icon when menu closes
+  useEffect(() => {
+    const hamburger = hamburgerRef.current;
+    if (!hamburger) return;
+
+    const lines = hamburger.querySelectorAll(".hamburger-line");
+    if (!isMobileMenuOpen) {
+      gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
+      gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+    }
+  }, [isMobileMenuOpen, ease]);
+
   useEffect(() => {
     const layout = () => {
       circleRefs.current.forEach((circle) => {
@@ -171,7 +183,7 @@ const PillNav: React.FC<PillNavProps> = ({
 
     const menu = mobileMenuRef.current;
     if (menu) {
-      gsap.set(menu, { visibility: "hidden", opacity: 0, scaleY: 1, y: 0 });
+      gsap.set(menu, { visibility: "hidden", opacity: 0, scaleY: 0, y: 10 });
     }
 
     if (initialLoadAnimation) {
@@ -528,6 +540,8 @@ const PillNav: React.FC<PillNavProps> = ({
         style={{
           ...cssVars,
           background: "var(--base, #f0f0f0)",
+          visibility: "hidden",
+          opacity: 0,
         }}
       >
         <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
@@ -583,7 +597,7 @@ const PillNav: React.FC<PillNavProps> = ({
             );
           })}
           {showThemeToggle && (
-            <li className="flex justify-center items-center gap-2 pt-2">
+            <li className="flex justify-center items-center gap-2 pt-2" onClick={toggleMobileMenu}>
               <LanguageSwitcher />
               <ThemeToggle />
             </li>
