@@ -224,7 +224,29 @@
     }
   },
   "faq": {
-    "title": "Sıkça Sorulan Sorular"
+    "title": "Sıkça Sorulan Sorular",
+    "items": {
+      "1": {
+        "question": "Projeme nasıl başlarım?",
+        "answer": "Yukarıdaki iletişim formunu projenizle ilgili detaylarla doldurun veya doğrudan bana e-posta gönderin. Ne inşa etmek istediğiniz, zaman çizelgeniz ve özel gereksinimleriniz hakkında bilgi ekleyin. İhtiyaçlarınızı detaylı olarak tartışabileceğimiz ve projeniz için en iyi yaklaşımı belirleyebileceğimiz ücretsiz bir danışma planlamak için 24 saat içinde size geri döneceğim."
+      },
+      "2": {
+        "question": "Sorumda hangi bilgileri belirtmeliyim?",
+        "answer": "Ne kadar fazla detay verirseniz, ihtiyaçlarınızı o kadar iyi anlayabilirim. Şunları eklemeye çalışın: projenizin veya fikrinizin kısa bir açıklaması, bütçe aralığınız (aklınızda bir tane varsa), tercih ettiğiniz zaman çizelgesi veya son tarih, ihtiyacınız olan belirli özellikler veya işlevler ve beğendiğiniz web siteleri veya tasarım örnekleri. Tüm detayları belirlemediyseniz endişelenmeyin - danışmamız sırasında birlikte çalışabiliriz."
+      },
+      "3": {
+        "question": "Ne kadar hızlı yanıt alacağım?",
+        "answer": "Genellikle iş günlerinde tüm sorulara 24 saat içinde yanıt veriyorum. Acil yardıma ihtiyacınız varsa veya zamana duyarlı bir projeniz varsa, lütfen bunu mesajınızda belirtin ve sorgunuza öncelik vereceğim. Devam eden projeler için düzenli iletişim kuruyorum ve tercihinize bağlı olarak haftada en az iki kez veya daha sık güncellemeler sağlıyorum."
+      },
+      "4": {
+        "question": "Sorgumu gönderdikten sonra ne olur?",
+        "answer": "Sorgunuzu gönderdikten sonra, işte sonra olanlar: Mesajınızı gözden geçireceğim ve alındığını onaylamak ve açıklayıcı sorular sormak için 24 saat içinde yanıt vereceğim. Projenizi detaylı olarak tartışmak için bir danışma çağrısı veya video toplantısı planlayacağız. Görüşmemizden sonra, kapsam, zaman çizelgesi ve fiyatlandırmayı içeren detaylı bir teklif göndereceğim. Devam etmekten mutluysanız, bir anlaşma imzalayacağız ve işe başlamak için ilk ödemeyi talep edeceğim. İlk temastan proje başlangıcına kadar tüm süreç genellikle 1-3 gün sürer."
+      },
+      "5": {
+        "question": "Tam olarak neye ihtiyacım olduğundan emin değilsem ne olur?",
+        "answer": "Bu tamamen normal! Birçok müşteri sadece bir fikir veya çözmeleri gereken bir sorunla iletişime geçiyor. Danışmamız sırasında, hedeflerinizi netleştirmeye yardımcı olacak sorular soracağım, deneyimime dayanarak çözümler önereceğim ve mevcut seçenekler konusunda size rehberlik edeceğim. İşim, sizden istediğinizi yapmak değil, en iyi yaklaşımı bulmanıza yardımcı olmaktır - projenizin başarısında ortağınız olmak için buradayım."
+      }
+    }
   },
   "footer": {
     "copyright": "© {year} Mustafa Hasanain.",
