@@ -20,22 +20,20 @@
     "title": "About Me",
     "badge": "SOFTWARE ENGINEER",
     "greeting": "Hi, I'm Mustafa",
-    "description1": "I'm a passionate software engineer with over 5 years of experience building web applications and custom software solutions. I specialize in creating scalable, performant applications that solve real-world problems.",
-    "description2": "My journey in software development has taught me that great code isn't just about functionality—it's about maintainability, scalability, and user experience. I believe in writing clean, well-documented code that other developers can understand and build upon.",
-    "description3": "When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community. I'm always eager to take on new challenges and collaborate on innovative projects.",
+    "description": "I'm a passionate software engineer with over 5 years of experience building web applications and custom software solutions. I specialize in creating scalable, performant applications that solve real-world problems.",
     "features": {
-      "cleanCode": "Clean Code Advocate",
+      "cleanCode": "Clean Code and Structure",
       "performance": "Performance Focused",
       "userCentric": "User-Centric Design"
     },
     "stats": {
       "experience": {
         "value": "5+",
-        "label": "Years of experience building amazing products"
+        "label": "Years of experience building products"
       },
       "projects": {
         "value": "20+",
-        "label": "Projects delivered from concept to production"
+        "label": "Projects completed from concept to production"
       },
       "technologies": {
         "value": "15+",
@@ -48,10 +46,10 @@
     },
     "mission": {
       "title": "What Drives Me",
-      "description": "I'm driven by the desire to create technology that makes a difference. Every line of code I write is an opportunity to solve problems, improve lives, and push the boundaries of what's possible."
+      "description": "What drives me is creating practical technology that makes life easier and solving problems through code. I enjoy turning ideas into tools that people can actually use."
     },
     "cv": {
-      "view": "View CV",
+      "view": "View my CV",
       "download": "Download"
     }
   },
@@ -69,19 +67,19 @@
     "items": {
       "1": {
         "title": "Frontend Development",
-        "description": "Built responsive web apps using Next.js, JavaScript, and TypeScript, ensuring smooth user experiences and modern UI aesthetics."
+        "description": "Built responsive web apps (Next.js, TS/JS) for smooth UX and modern UI aesthetics."
       },
       "2": {
         "title": "Backend Development",
-        "description": "I have developed backend systems with Node.js and Express.js, handling APIs, databases, and server-side logic."
+        "description": "Developed APIs and server-side logic (Node.js/Express.js); managed database integration."
       },
       "3": {
         "title": "Graphic Design",
-        "description": "Created branding materials, marketing assets, and digital graphics using Photoshop, Illustrator, Figma, and Canva, delivering visually engaging and cohesive designs tailored to client needs."
+        "description": "Created branding, marketing assets, and digital graphics using Adobe Suite, Figma, and Canva."
       },
       "4": {
         "title": "WordPress Developer",
-        "description": "I have created custom WordPress websites, including a personal portfolio and a time scheduling app with tailored functionality and responsive design."
+        "description": "Designed custom WordPress sites, portfolio, plugins and scheduling apps with tailored, responsive functionality."
       }
     }
   },

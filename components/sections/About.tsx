@@ -27,11 +27,10 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
             {/* Large Profile Card - Takes up left side */}
             <div className="lg:col-span-5 row-span-2 group">
-              {/* bg-gradient-to-br from-purple-500 via-blue-500 to-cyan-500 */}
               <div className="h-full bg-[#ad7cf6] dark:bg-[#cbacf9] rounded-3xl p-1 hover:scale-[1.02] transition-all duration-500">
                 <div className="h-full bg-white dark:bg-[#0a0a0a] rounded-3xl p-8 md:p-10 flex flex-col justify-between">
                   <div>
-                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full mb-6">
+                    <div className="inline-block px-4 py-2 bg-linear-to-r from-purple-500/10 to-blue-500/10 rounded-full mb-6">
                       <span className="text-sm font-semibold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent">
                         {t("badge")}
                       </span>
@@ -42,7 +41,7 @@ const About = () => {
                     </h2>
 
                     <p className="text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed mb-6">
-                      {t("description1")}
+                      {t("description")}
                     </p>
 
                     <div className="space-y-3">
@@ -98,7 +97,7 @@ const About = () => {
             <div className="lg:col-span-7 grid grid-cols-2 gap-4 md:gap-6">
               {/* Experience Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-purple-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-purple-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.experience.value")}
                   </div>
@@ -110,7 +109,7 @@ const About = () => {
 
               {/* Projects Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-blue-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-blue-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.projects.value")}
                   </div>
@@ -122,7 +121,7 @@ const About = () => {
 
               {/* Tech Stack Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-cyan-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-cyan-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.technologies.value")}
                   </div>
@@ -134,7 +133,7 @@ const About = () => {
 
               {/* Passion Card */}
               <div className="group cursor-pointer">
-                <div className="h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-pink-500/50 transition-all duration-300 group-hover:scale-[1.05]">
+                <div className="h-full bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 rounded-3xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-700 hover:border-pink-500/50 transition-all duration-300 group-hover:scale-[1.05]">
                   <div className="text-5xl md:text-6xl font-bold bg-[#ad7cf6] dark:bg-[#cbacf9] bg-clip-text text-transparent mb-3">
                     {t("stats.passion.value")}
                   </div>
