@@ -18,6 +18,7 @@ export interface WorkExperience {
   title: string;
   description: string;
   className: string;
+  thumbnail: string;
 }
 
 export interface TechStack {
