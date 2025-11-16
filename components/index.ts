@@ -4,6 +4,9 @@ export { ThemeProvider } from "./providers/theme-provider";
 export { LanguageSwitcher } from "./language-switcher";
 export { default as LocaleRedirect } from "./LocaleRedirect";
 
+// analytics
+export { UmamiAnalytics } from "./analytics";
+
 // components
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";

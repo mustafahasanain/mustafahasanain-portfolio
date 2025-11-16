@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Jost, Cairo } from "next/font/google";
-import { Footer, Navbar, ThemeProvider, LocaleRedirect } from "@/components";
+import { Footer, Navbar, ThemeProvider, LocaleRedirect, UmamiAnalytics } from "@/components";
 import { locales, defaultLocale } from "@/i18n";
 import "../globals.css";
 
@@ -89,6 +89,7 @@ export default async function LocaleLayout(props: Props) {
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
       <body className={`${jost.variable} ${cairo.variable} antialiased`} style={{ fontFamily }}>
+        <UmamiAnalytics />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
