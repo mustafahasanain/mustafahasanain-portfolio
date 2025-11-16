@@ -13,12 +13,12 @@ const DevelopmentProcess = () => {
   const [activeCard, setActiveCard] = React.useState<number | null>(null);
 
   return (
-    <section className="py-10">
-      <div className="container mx-auto px-4 mt-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+    <section className="py-10 md:py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 pt-8 md:pt-0 dark:text-white text-black block">
           {t("title")}
         </h2>
-        <div className=" flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-4 md:px-8">
           {developmentPhases.map((phaseData) => (
             <Card
               key={phaseData.id}
