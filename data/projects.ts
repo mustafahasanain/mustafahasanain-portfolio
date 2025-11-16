@@ -75,7 +75,7 @@ export const projects: Project[] = [
     description:
       "A professional medical clinic website with appointment booking and services showcase.",
     image: "/projects/kemaliclinic.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/host.svg"],
+    iconLists: ["/nextjs.svg", "/tail.svg", "/ts.svg", "/host.svg"],
     liveUrl: "https://powderblue-turkey-333061.hostingersite.com/",
     githubUrl: "https://github.com/mustafahasanain/kemaliclinic",
   },

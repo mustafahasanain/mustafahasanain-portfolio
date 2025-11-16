@@ -75,8 +75,15 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               as="a"
               href={project.githubUrl}
               target="_blank"
-              className="px-3 sm:px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:underline"
+              className="px-3 sm:px-4 py-2 rounded-xl text-xs font-normal dark:text-white hover:underline flex items-center gap-2"
             >
+              <Image
+                src="/github.svg"
+                alt="GitHub"
+                width={16}
+                height={16}
+                className="sm:w-5 sm:h-5"
+              />
               {t("viewCode")}
             </CardItem>
             <CardItem
